@@ -138,13 +138,15 @@ button.instructionsScreen {
     display: inline;
 }
 
-
 </style>
 
 </head>
 
 
 <body>
+
+    <!-- FIRST SCREEN, AKA Game Start -->
+
     <div class="containerStart startScreen text-center">
         <img class="startImg startScreen" src="../monopoly-project/assets/images/MonopolyMan.png" alt="Monopoly Man">
         <div class="titleStart startScreen">
@@ -154,6 +156,8 @@ button.instructionsScreen {
             <button class="btn btn-danger startScreen" id="start">Start Game!</button>
         </form>
    </div>
+
+   <!-- SECOND SCREEN, AKA Instructions -->
 
    <div class="containerInstructions instructionsScreen text-center">
        <h2 class="instructionsScreen">Instructions</h2>
@@ -202,6 +206,8 @@ button.instructionsScreen {
        </div>
     </div>
 
+    <!-- Third Screen, AKA Players -->
+
     <div class="containerPlayers playersScreen text-center">
         <div class="innerContainersPlayers playersScreen">
             <h2 class="playersScreen playerTitleText">Player One</h2>
@@ -211,6 +217,8 @@ button.instructionsScreen {
             <h2 class="playersScreen playerTitleText">Player Two</h2>
         </div>
     </div>
+
+    <!-- JQUERY for moving between screens on page load -->
 
    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
    <script type="text/javascript">
@@ -222,6 +230,9 @@ button.instructionsScreen {
 
    $(document).on('click', '#instructionsGoToGame', function (){
         event.preventDefault();
+
+        // This is so we can have a button on screen 4, Main Game, to view/show the instructions mid-game on click of another button, if we want.
+
         if ($(this).attr('data-gamestart') == 'no'){
             $('.containerInstructions').hide();
             $('.containerPlayers').show();
