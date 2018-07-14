@@ -7,13 +7,24 @@
 
 
 <style type="text/css">
+
+/* adds SF background to page */
 body {
     background: white url('../monopoly-project/assets/images/san-francisco-image-1200.jpg');
     background-position: fixed center center;
 }
+
+/* Monopoly Man image and font*/
 .startImg {
     height: 150px;
 }
+
+@font-face {
+    font-family: Monopoly;
+    src: url('../monopoly-project/assets/fonts/Monopoly/MonopolyRegular.ttf');
+}
+
+/* container, title, text, etc. on first screen, AKA screen 1, Game Start */
 .containerStart {
     width: 60%;
     height: 200px;
@@ -24,10 +35,6 @@ body {
     border: 5px solid black;
     box-shadow: 5px 5px 8px black;
 }
-@font-face {
-    font-family: Monopoly;
-    src: url('../monopoly-project/assets/fonts/Monopoly/MonopolyRegular.ttf');
-}
 
 h1.startScreen, h2.instructionsScreen, h2.playersScreen {
     margin: 15px 0px;
@@ -37,17 +44,13 @@ h1.startScreen, h2.instructionsScreen, h2.playersScreen {
     color: white;
     text-shadow: 2px 2px black;
 }
-#playerText {
-    display: inline;
-}
-button.instructionsScreen {
-    margin: 0px 0px 25px 0px;
-    box-shadow: 5px 5px 8px black;
-}
+
 #start {
     margin-top:15px;
     box-shadow: 5px 5px 8px black;
 }
+
+/* instructions container, text, button, etc. AKA screen 2, Instructions */
 .containerInstructions {
     background: darkred;
     border: 5px solid black;
@@ -67,26 +70,27 @@ button.instructionsScreen {
     padding: 0px 100px;
     overflow: auto;
 }
-.containerPlayers {
-    width: 60%;
-    height: 600px;
-    margin: 1% auto;
-    padding: 0px 10px;
-    display: none;
-}
-.innerContainersPlayers {
-    width: 385px;
-    height: 600px;
-    margin: 0px 5px;
-    background: darkred;
-    border: 5px solid black;
+button.instructionsScreen {
+    margin: 0px 0px 25px 0px;
     box-shadow: 5px 5px 8px black;
-    color: white;
-    text-shadow: 1px 1px black;
-    font-family: sans-serif;
-    font-size: 12px;
-    float: left;    
 }
+
+.containerInstructions li {
+    text-align: left;
+}
+.hideNum {
+    list-style-type:none;
+}
+.specialCards, h5.instructionsScreen {
+    font-size: 20px;
+    font-family: Monopoly;
+    color: black;
+    font-weight: bolder;
+    text-shadow: 0.5px 0.5px darkslategrey;
+    margin-right: 5px;
+}
+
+/* scrollbar stuff for Instructions innerDiv */
 /* scrollbar width */
 ::-webkit-scrollbar {
     width: 10px;
@@ -108,20 +112,32 @@ button.instructionsScreen {
 ::-webkit-scrollbar-thumb:hover {
     background: white; 
 }
-.containerInstructions li {
-    text-align: left;
+
+/* Players container, titles, text, etc. AKA screen 3, players */
+.containerPlayers {
+    width: 60%;
+    height: 600px;
+    margin: 1% auto;
+    padding: 0px 10px;
+    display: none;
 }
-.hideNum {
-    list-style-type:none;
+.innerContainersPlayers {
+    width: 385px;
+    height: 600px;
+    margin: 0px 5px;
+    background: darkred;
+    border: 5px solid black;
+    box-shadow: 5px 5px 8px black;
+    color: white;
+    text-shadow: 1px 1px black;
+    font-family: sans-serif;
+    font-size: 12px;
+    float: left;    
 }
-.specialCards, h5.instructionsScreen {
-    font-size: 20px;
-    font-family: Monopoly;
-    color: black;
-    font-weight: bolder;
-    text-shadow: 0.5px 0.5px darkslategrey;
-    margin-right: 5px;
+.playerTitleText {
+    display: inline;
 }
+
 
 </style>
 
@@ -188,10 +204,11 @@ button.instructionsScreen {
 
     <div class="containerPlayers playersScreen text-center">
         <div class="innerContainersPlayers playersScreen">
-            <h2 class="playersScreen" id="playerText">Player One</h2>
+            <h2 class="playersScreen playerTitleText">Player One</h2>
+
         </div>
         <div class="innerContainersPlayers playersScreen">
-            <h2 class="playersScreen" id="playerText">Player Two</h2>
+            <h2 class="playersScreen playerTitleText">Player Two</h2>
         </div>
     </div>
 
