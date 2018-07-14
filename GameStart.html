@@ -232,6 +232,13 @@ input {
                     <span class="playerToken" id="choiceFour">*</span>
                     <span class="playerToken" id="choiceFive">*</span>
                 </p>
+                <p>
+                    <span class="playerToken" id="choiceSix">*</span>
+                    <span class="playerToken" id="choiceSeven">*</span>
+                    <span class="playerToken" id="choiceEight">*</span>
+                    <span class="playerToken" id="choiceNine">*</span>
+                    <span class="playerToken" id="choiceTen">*</span>
+                </p>
                 <p>Roll the Die!</p>
                 <!-- die goes here -->
                 <button class="btn btn-danger playerButton" id="submitOne">Submit</button>
@@ -249,6 +256,13 @@ input {
                     <span class="playerToken" id="choiceThree">*</span>
                     <span class="playerToken" id="choiceFour">*</span>
                     <span class="playerToken" id="choiceFive">*</span>
+                </p>
+                <p>
+                    <span class="playerToken" id="choiceSix">*</span>
+                    <span class="playerToken" id="choiceSeven">*</span>
+                    <span class="playerToken" id="choiceEight">*</span>
+                    <span class="playerToken" id="choiceNine">*</span>
+                    <span class="playerToken" id="choiceTen">*</span>
                 </p>
                 <p>Roll the Die!</p>
                 <!-- die goes here -->
@@ -296,6 +310,7 @@ $(document).on('click', '.playerButton', function (){
     event.preventDefault();
     if ($(this).attr('id', 'playerOne')){
         playerOne.name = $('#playerOneName').val();
+        
 
     };
 
