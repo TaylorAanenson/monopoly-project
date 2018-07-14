@@ -137,6 +137,16 @@ button.instructionsScreen {
 .playerTitleText {
     display: inline;
 }
+input {
+    margin-bottom: 10px;
+}
+.playerToken {
+    width: 15px;
+    height: 15px;
+    border: 1px solid black;
+    margin: 5px 5px 20px 5px;
+    padding: 5px;
+}
 
 </style>
 
@@ -210,11 +220,40 @@ button.instructionsScreen {
 
     <div class="containerPlayers playersScreen text-center">
         <div class="innerContainersPlayers playersScreen">
-            <h2 class="playersScreen playerTitleText">Player One</h2>
-
+            <h2 class="playerTitleText playersScreen">Player One</h2>
+            <form>
+                <p>Player Nickname</p>
+                <input type="text" id="playerOneName">
+                <p>Choose a Token</p>
+                <p>
+                    <span class="playerToken" id="choiceOne">*</span>
+                    <span class="playerToken" id="choiceTwo">*</span>
+                    <span class="playerToken" id="choiceThree">*</span>
+                    <span class="playerToken" id="choiceFour">*</span>
+                    <span class="playerToken" id="choiceFive">*</span>
+                </p>
+                <p>Roll the Die!</p>
+                <!-- die goes here -->
+                <button class="btn btn-danger playerButton" id="submitOne">Submit</button>
+            </form>
         </div>
         <div class="innerContainersPlayers playersScreen">
             <h2 class="playersScreen playerTitleText">Player Two</h2>
+            <form>
+            <p>Player Nickname</p>
+                <input type="text" id="playerTwoName">
+                <p>Choose a Token</p>
+                <p>
+                    <span class="playerToken" id="choiceOne">*</span>
+                    <span class="playerToken" id="choiceTwo">*</span>
+                    <span class="playerToken" id="choiceThree">*</span>
+                    <span class="playerToken" id="choiceFour">*</span>
+                    <span class="playerToken" id="choiceFive">*</span>
+                </p>
+                <p>Roll the Die!</p>
+                <!-- die goes here -->
+                <button class="btn btn-danger playerButton" id="submitTwo">Submit</button>
+            </form>
         </div>
     </div>
 
@@ -232,14 +271,41 @@ button.instructionsScreen {
         event.preventDefault();
 
         // This is so we can have a button on screen 4, Main Game, to view/show the instructions mid-game on click of another button, if we want.
-
         if ($(this).attr('data-gamestart') == 'no'){
             $('.containerInstructions').hide();
             $('.containerPlayers').show();
             $(this).attr('data-gamestart', 'yes');
         }
-       
    });
+
+$(document).on('click', '#instructionsGoToGame', function (){
+        event.preventDefault();
+
+        // This is so we can have a button on screen 4, Main Game, to view/show the instructions mid-game on click of another button, if we want.
+        if ($(this).attr('data-gamestart') == 'no'){
+            $('.containerInstructions').hide();
+            $('.containerPlayers').show();
+            $(this).attr('data-gamestart', 'yes');
+        }
+   });
+
+var playerOne = {};
+var playerTwo = {};
+
+$(document).on('click', '.playerButton', function (){
+    event.preventDefault();
+    if ($(this).attr('id', 'playerOne')){
+        playerOne.name = $('#playerOneName').val();
+
+    };
+
+    if ($(this).attr('id', 'playerTwo')){
+        playerTwo.name = $('#playerTwoName').val();
+
+    };
+});
+
+
    </script>
 </body>
 </html>
