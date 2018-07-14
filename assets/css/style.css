@@ -1,30 +1,33 @@
+body {
+    background-image: url(../images/san-francisco-image-1200.jpg);
+}
 #player1 {
     float: left;
-    background-color: rebeccapurple;
-    height: 720px;
-    width: 20%;
+    background-color: rgb(100, 51, 153,0.4);
+    height: 715px;
+    width: 23%;
 }
 #board {
     float: left;
-    background-color: red;
-    height: 720px;
-    width: 60%;
+    background-color: rgb(255, 2, 1,0.5);
+    height: 715px;
+    width: 54%;
 }
 #player2 {
     float: left;
-    background-color: royalblue;
-    height: 720px;
-    width: 20%;
+    background-color: rgb(65, 104, 226,0.4);
+    height: 715px;
+    width: 23%;
 }
 .row {
-    width: 60%;
+    width: 54%;
     position: absolute;
     margin: auto;
-    left: 20%;
+    left: 23%;
     background-color: rgba(0, 0, 0, 0.5);
 }
 #row2 {
-    top: 143px;
+    top: 142px;
 }
 #row3 {
     top: 250px;
@@ -33,140 +36,69 @@
     top: 358px;
 }
 #row5 {
-    top: 465px;
+    top: 466px;
 }
 #row6 {
-    top: 572px;
+    top: 573px;
 }
-#corner1 {
+.corners {
     width: 20%;
 }
-#corner2 {
-    width: 20%;
-}
-#go-to-jail, #free-parking {
-    height: 143px;
+#go-to-jail, #free-parking, #in-jail, #go {
+    height: 142px;
     width: 100%;
 }
-#player1-free-parking {
+#player1-free-parking, #player1-in-jail {
     position: absolute;
-    bottom: 50%;
-    left: 4%;
+    bottom: 20%;
+    left: 5%;
     color: yellow;
 }
-#player2-free-parking {
+#player2-free-parking, #player2-in-jail {
     position: absolute;
-    bottom: 50%;
-    left: 13%;
+    bottom: 20%;
+    left: 12%;
     color: red;
 }
-#player1-go-to-jail {
+#player1-go-to-jail, #player1-go {
     position: absolute;
-    bottom: 50%;
-    right: 13%;
+    bottom: 20%;
+    right: 12%;
     color: yellow;
 }
-#player2-go-to-jail {
+#player2-go-to-jail, #player2-go {
     position: absolute;
-    bottom: 50%;
-    right: 4%;
+    bottom: 20%;
+    right: 5%;
     color: red;
 }
-#corner3 {
-    background-color: rgba(0, 0, 0, 0.5);
-    height: 148px;
-    width: 20%;
-}
-#corner4 {
-    background-color: rgba(0, 0, 0, 0.5);
-    height: 148px;
-    width: 20%;
-}
-#property1 {
-    background-color: rgba(184, 184, 184, 0.5);
-    height: 143px;
-    width: 15%;
-}
-#property2 {
-    background-color: rgba(184, 184, 184, 0.5);
-    height: 143px;
-    width: 15%;
-}
-#property3 {
-    background-color: rgba(184, 184, 184, 0.5);
-    height: 143px;
-    width: 15%;
-}
-#property4 {
-    background-color: rgba(184, 184, 184, 0.5);
-    height: 143px;
-    width: 15%;
-}
-#property5 {
-    background-color: rgba(184, 184, 184, 0.5);
-    height: 107px;
-    width: 20%;
-}
-#property6 {
+#player1-in-jail {
     position: absolute;
-    left: 80%;
-    background-color: rgba(184, 184, 184, 0.5);
-    height: 107px;
-    width: 20%;
+    bottom: 20%;
+    left: 5%;
+    color: yellow;
 }
-#property7 {
+#player2-in-jail {
+    position: absolute;
+    bottom: 20%;
+    left: 12%;
+    color: red;
+}
+.properties {
     background-color: rgba(184, 184, 184, 0.5);
     height: 108px;
+    width: 15%;
+}
+.long-properties {
+    height: 142px;
+}
+.wide-properties {
     width: 20%;
 }
-#property8 {
+.end-properties {
     position: absolute;
     left: 80%;
-    background-color: rgba(184, 184, 184, 0.5);
-    height: 108px;
-    width: 20%;
 }
-#property9 {
-    background-color: rgba(184, 184, 184, 0.5);
+#property11, #property12 {
     height: 107px;
-    width: 20%;
-}
-#property10 {
-    position: absolute;
-    left: 80%;
-    background-color: rgba(184, 184, 184, 0.5);
-    height: 107px;
-    width: 20%;
-}
-#property11 {
-    background-color: rgba(184, 184, 184, 0.5);
-    height: 107px;
-    width: 20%;
-}
-#property12 {
-    position: absolute;
-    left: 80%;
-    background-color: rgba(184, 184, 184, 0.5);
-    height: 107px;
-    width: 20%;
-}
-#property13 {
-    background-color: rgba(184, 184, 184, 0.5);
-    height: 148px;
-    width: 15%;
-}
-#property14 {
-    background-color: rgba(184, 184, 184, 0.5);
-    height: 148px;
-    width: 15%;
-}
-#property15 {
-    background-color: rgba(184, 184, 184, 0.5);
-    height: 148px;
-    width: 15%;
-}
-#property16 {
-    background-color: rgba(184, 184, 184, 0.5);
-    height: 148px;
-    width: 15%;
 }
