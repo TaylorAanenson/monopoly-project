@@ -1,0 +1,172 @@
+#player1 {
+    float: left;
+    background-color: rebeccapurple;
+    height: 720px;
+    width: 20%;
+}
+#board {
+    float: left;
+    background-color: red;
+    height: 720px;
+    width: 60%;
+}
+#player2 {
+    float: left;
+    background-color: royalblue;
+    height: 720px;
+    width: 20%;
+}
+.row {
+    width: 60%;
+    position: absolute;
+    margin: auto;
+    left: 20%;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+#row2 {
+    top: 143px;
+}
+#row3 {
+    top: 250px;
+}
+#row4 {
+    top: 358px;
+}
+#row5 {
+    top: 465px;
+}
+#row6 {
+    top: 572px;
+}
+#corner1 {
+    width: 20%;
+}
+#corner2 {
+    width: 20%;
+}
+#go-to-jail, #free-parking {
+    height: 143px;
+    width: 100%;
+}
+#player1-free-parking {
+    position: absolute;
+    bottom: 50%;
+    left: 4%;
+    color: yellow;
+}
+#player2-free-parking {
+    position: absolute;
+    bottom: 50%;
+    left: 13%;
+    color: red;
+}
+#player1-go-to-jail {
+    position: absolute;
+    bottom: 50%;
+    right: 13%;
+    color: yellow;
+}
+#player2-go-to-jail {
+    position: absolute;
+    bottom: 50%;
+    right: 4%;
+    color: red;
+}
+#corner3 {
+    background-color: rgba(0, 0, 0, 0.5);
+    height: 148px;
+    width: 20%;
+}
+#corner4 {
+    background-color: rgba(0, 0, 0, 0.5);
+    height: 148px;
+    width: 20%;
+}
+#property1 {
+    background-color: rgba(184, 184, 184, 0.5);
+    height: 143px;
+    width: 15%;
+}
+#property2 {
+    background-color: rgba(184, 184, 184, 0.5);
+    height: 143px;
+    width: 15%;
+}
+#property3 {
+    background-color: rgba(184, 184, 184, 0.5);
+    height: 143px;
+    width: 15%;
+}
+#property4 {
+    background-color: rgba(184, 184, 184, 0.5);
+    height: 143px;
+    width: 15%;
+}
+#property5 {
+    background-color: rgba(184, 184, 184, 0.5);
+    height: 107px;
+    width: 20%;
+}
+#property6 {
+    position: absolute;
+    left: 80%;
+    background-color: rgba(184, 184, 184, 0.5);
+    height: 107px;
+    width: 20%;
+}
+#property7 {
+    background-color: rgba(184, 184, 184, 0.5);
+    height: 108px;
+    width: 20%;
+}
+#property8 {
+    position: absolute;
+    left: 80%;
+    background-color: rgba(184, 184, 184, 0.5);
+    height: 108px;
+    width: 20%;
+}
+#property9 {
+    background-color: rgba(184, 184, 184, 0.5);
+    height: 107px;
+    width: 20%;
+}
+#property10 {
+    position: absolute;
+    left: 80%;
+    background-color: rgba(184, 184, 184, 0.5);
+    height: 107px;
+    width: 20%;
+}
+#property11 {
+    background-color: rgba(184, 184, 184, 0.5);
+    height: 107px;
+    width: 20%;
+}
+#property12 {
+    position: absolute;
+    left: 80%;
+    background-color: rgba(184, 184, 184, 0.5);
+    height: 107px;
+    width: 20%;
+}
+#property13 {
+    background-color: rgba(184, 184, 184, 0.5);
+    height: 148px;
+    width: 15%;
+}
+#property14 {
+    background-color: rgba(184, 184, 184, 0.5);
+    height: 148px;
+    width: 15%;
+}
+#property15 {
+    background-color: rgba(184, 184, 184, 0.5);
+    height: 148px;
+    width: 15%;
+}
+#property16 {
+    background-color: rgba(184, 184, 184, 0.5);
+    height: 148px;
+    width: 15%;
+}
