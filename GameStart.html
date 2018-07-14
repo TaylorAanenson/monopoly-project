@@ -29,7 +29,7 @@ body {
     src: url('../monopoly-project/assets/fonts/Monopoly/MonopolyRegular.ttf');
 }
 
-h1.startScreen, h2.instructionsScreen {
+h1.startScreen, h2.instructionsScreen, h2.playersScreen {
     margin: 15px 0px;
     font-family: Monopoly;
     font-size: 80px;
@@ -37,13 +37,16 @@ h1.startScreen, h2.instructionsScreen {
     color: white;
     text-shadow: 2px 2px black;
 }
+button.instructionsScreen {
+    margin: 0px 0px 25px 0px;
+    box-shadow: 5px 5px 8px black;
+}
 #start {
     margin-top:15px;
     box-shadow: 5px 5px 8px black;
 }
-.containerInstructions {
+.containerInstructions, .containerPlayers {
     background: darkred;
-    opacity: 0.95;
     border: 5px solid black;
     box-shadow: 5px 5px 8px black;
     color: white;
@@ -53,30 +56,34 @@ h1.startScreen, h2.instructionsScreen {
     width: 60%;
     height: 600px;
     margin: 1% auto;
-    padding: 0px 100px;
     display: none;
+}
+.instructionsInnerDiv {   
+    width: 100%;
+    height: 400px;
+    padding: 0px 100px;
     overflow: auto;
 }
 /* scrollbar width */
 ::-webkit-scrollbar {
-    width: 15px;
+    width: 10px;
 }
 
 /* scrollbar Track */
 ::-webkit-scrollbar-track {
-    box-shadow: inset 0 0 5px grey; 
+    box-shadow: inset 0 0 5px black; 
     border-radius: 10px;
 }
  
 /* scrollbar Handle */
 ::-webkit-scrollbar-thumb {
-    background: grey; 
+    background: white; 
     border-radius: 10px;
 }
 
 /* scrollbar Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
-    background: grey; 
+    background: white; 
 }
 .containerInstructions li {
     text-align: left;
@@ -113,35 +120,54 @@ h1.startScreen, h2.instructionsScreen {
 
    <div class="containerInstructions instructionsScreen text-center">
        <h2 class="instructionsScreen">Instructions</h2>
-       <h5 class="instructionsScreen">Basics</h5>
-       <p>The object of the game is to become the wealthiest player through buying, renting, and selling of property.</p>
-       <p>Each player begins the game with $1000. When one player runs out of money, the game ends.</p>
-       <h5 class="instructionsScreen">Game Play</h5>
-        <ol>
-            <li>Each player clicks the die to roll for first turn. The player with the highest number goes first. Each player starts at the corner marked "GO."</li>
-            <li> The first player rolls the dice and his/her token moves the number of spaces indicated by the dice.</li>
-            <li>The tokens remain on the spaces occupied and proceed from that point on the player's next turn. 
-                Two or more tokens may rest on the same space at the same time.</li> 
-            <li>Depending on the space your token reaches, you may be entitled to buy real estate or other properties, or be obliged to pay rent, pay taxes, 
-                draw a Chance or Community Chest card, Go To Jail, etc. according to the space.</li>
-        </ol>
-        <h5 class="instructionsScreen">Special Squares</h5>
-        <ol>
-            <li class="hideNum"><span class="specialCards instructionsScreen">GO</span>Each time a player's token lands on or passes over GO, whether by throwing the dice or drawing a card, 
-                the player collects $200.</li>
-            <li class="hideNum"><span class="specialCards instructionsScreen">Free Parking</span>A player landing on this place does not receive any money, property or reward of any kind. 
-                This is just a "free" resting-place.</li>
-            <li class="hideNum"><span class="specialCards instructionsScreen">Go to Jail</span>You land in Jail when your token lands on the space marked "Go to Jail", 
-                or you draw a card marked "Go to jail."
-                When you are sent to Jail you do not pass GO and do not collect $200. Your token moves directly to Jail and then your turn ends. 
-                To get out of jail for free, roll doubles on your next turn. Otherwise, pay a $50 fine.</li>
-            <li class="hideNum"><span class="specialCards instructionsScreen">"Just Visiting" Jail</span>If you happen to land on the Jail space during the normal course of your turn, 
-                you do not pay the fine or have to roll doubles to leave on your next roll. You are simply "visiting jail." 
-                This space otherwise does not receive any money, property or reward of any kind.</li>
-            <li class="hideNum"><span class="specialCards instructionsScreen">Chance and Community Chest</span>If you land on a Chance or Community Chest space, you receive a card
-                 with random value associated with "Chance" or "Community Chance." Your turn ends after the instructions on the card are completed.</li>
-            <li class="hideNum"><span class="specialCards instructionsScreen"></span></li>
-        </ol>
+       <form>
+           <button class="btn btn-danger instructionsScreen" id="instructionsGoToGame" data-gamestart="no">Continue to Game</button>
+       </form>
+       <div class="instructionsInnerDiv instructionsScreen">
+            <h5 class="instructionsScreen">Basics</h5>
+            <p>The object of the game is to become the wealthiest player through buying, renting, and selling of property. Each player begins the game with $1000. 
+                When one player runs out of money, the game ends, and the other player wins. High scores are awarded for particularly rich players who win the game 
+                on bankruptcy of their opponent.</p>
+            <h5 class="instructionsScreen">Game Play</h5>
+             <ol>
+                 <li>Each player clicks the die to roll for first turn. The player with the highest number goes first. Each player starts at the corner marked "GO."</li>
+                 <li> The first player rolls the dice and his/her token moves the number of spaces indicated by the dice.</li>
+                 <li>The tokens remain on the spaces occupied and proceed from that point on the player's next turn. 
+                     Two or more tokens may rest on the same space at the same time.</li> 
+                 <li>Depending on the space your token reaches, you may be entitled to buy real estate, or be obliged to pay rent, draw a Chance or Community Chest card, 
+                     Go To Jail, etc. according to the space.</li>
+             </ol>
+             <h5 class="instructionsScreen">Property and Rent</h5>
+             <ol>
+                 <li>Whenever you land on an unowned property, you may buy that property from the Bank at its printed price. If you decide to buy the property, the other player 
+                     pays rent to you every time they land on that space, based on how much the land was worth when you bought it. Rent is one half of the property price if the property
+                     is owned by a player.</li>
+                 <li>If you choose not to buy the property that you have landed on, the other player gets a chance to buy the property.</li>
+                 <li>If neither you nor the other player buy the property once it has been landed on, then the bank takes control of the property and all players who land on that space
+                     after that turn pay rent to the bank at one quarter the property's original price.</li>
+             </ol>
+             <h5 class="instructionsScreen">Special Squares</h5>
+             <ol>
+                 <li class="hideNum"><span class="specialCards instructionsScreen">GO</span>Each time a player's token lands on or passes over GO, whether by throwing the dice or drawing a card, 
+                     the player collects $200.</li>
+                 <li class="hideNum"><span class="specialCards instructionsScreen">Free Parking</span>A player landing on this place does not receive any money, property or reward of any kind. 
+                     This is just a "free" resting-place.</li>
+                 <li class="hideNum"><span class="specialCards instructionsScreen">Go to Jail</span>You land in Jail when your token lands on the space marked "Go to Jail", 
+                     or you draw a card marked "Go to jail."
+                     When you are sent to Jail you do not pass GO and do not collect $200. Your token moves directly to Jail and then your turn ends. 
+                     To get out of jail for free, roll doubles on your next turn. Otherwise, pay a $50 fine.</li>
+                 <li class="hideNum"><span class="specialCards instructionsScreen">"Just Visiting" Jail</span>If you happen to land on the Jail space during the normal course of your turn, 
+                     you do not pay the fine or have to roll doubles to leave on your next roll. You are simply "visiting jail." 
+                     This space otherwise does not receive any money, property or reward of any kind.</li>
+                 <li class="hideNum"><span class="specialCards instructionsScreen">Chance and Community Chest</span>If you land on a Chance or Community Chest space, you receive a card
+                      with random value associated with "Chance" or "Community Chest." Your turn ends after the instructions on the card are completed.</li>
+             </ol>
+       </div>
+    </div>
+
+    <div class="containerPlayers playersScreen text-center">
+        <h2 class="playersScreen">Players</h2>
+            
     </div>
 
    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
@@ -150,7 +176,17 @@ h1.startScreen, h2.instructionsScreen {
         event.preventDefault();
        $('.containerStart').hide();
        $('.containerInstructions').show();
-   })
+   });
+
+   $(document).on('click', '#instructionsGoToGame', function (){
+        event.preventDefault();
+        if ($(this).attr('data-gamestart') == 'no'){
+            $('.containerInstructions').hide();
+            $('.containerPlayers').show();
+            $(this).attr('data-gamestart', 'yes');
+        }
+       
+   });
    </script>
 </body>
 </html>
