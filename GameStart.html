@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Start Game</title>
+
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/css/bootstrap.min.css" integrity="sha384-Smlep5jCw/wG7hdkwQ/Z5nLIefveQRIY9nfy6xoR1uRYBtpZgI6339F5dgvm/e9B" crossorigin="anonymous">
+
+
+<style type="text/css">
+body {
+    background: white url('https://www.libertypuzzles.com/userfiles/media/images/10099/san-francisco-image-1200.jpg');
+    background-position: fixed center center;
+}
+.startImg {
+    height: 150px;
+}
+.containerStart {
+    width: 60%;
+    height: 200px;
+    margin: 2% auto;
+}
+.titleStart {
+    background: darkred;
+    border: 5px solid black;
+    box-shadow: 5px 5px 8px black;
+}
+@font-face {
+    font-family: Monopoly;
+    src: url('../monopoly-project/assets/fonts/Monopoly/MonopolyRegular.ttf');
+}
+
+.startScreen h1 {
+    margin: 15px 0px;
+    font-family: Monopoly;
+    font-size: 80px;
+    text-align: center;
+    color: white;
+    text-shadow: 2px 2px black;
+}
+#start {
+    margin-top:15px;
+    box-shadow: 5px 5px 8px black;
+}
+
+</style>
+
+</head>
+
+
+<body>
+    <div class="containerStart startScreen text-center">
+        <img class="startImg startScreen" src="../monopoly-project/assets/images/MonopolyMan.png" alt="Monopoly Man">
+        <div class="titleStart startScreen">
+            <h1>SF MONOPOLY</h1>
+        </div>
+        <form>
+            <button class="btn btn-danger startScreen" id="start">Start Game!</button>
+        </form>
+   </div>
+
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+   <script type="text/javascript">
+   $('#start').on('click', function (){
+        event.preventDefault();
+       $('mainContainerStart').hide();
+   })
+   </script>
+</body>
+</html>
