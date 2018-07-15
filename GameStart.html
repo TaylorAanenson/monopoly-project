@@ -369,9 +369,9 @@ $(document).on('click', '#submitTwo', function (){
     event.preventDefault();
     if ($('#playerTwoName').val() == ''){
         alert('Please enter your name, Player Two.');
-    }else if (playerTwo.firstroll == undefined){
-        alert('Please choose a token, Player Two.')
     }else if (playerTwo.token == undefined){
+        alert('Please choose a token, Player Two.')
+    }else if (playerTwo.firstroll == undefined){
         alert('Please click the die to roll, Player Two.');
     }else {
         playerTwo.name = $('#playerTwoName').val();
