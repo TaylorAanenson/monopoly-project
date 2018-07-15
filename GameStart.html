@@ -140,13 +140,16 @@ button.instructionsScreen {
 input {
     margin-bottom: 10px;
 }
-.playerToken {
+.playerTokenOne, .playerTokenTwo {
     width: 40px;
     height: 40px;
     margin: 5px;
 }
 .die {
-    width: 75px;
+    width: 50px;
+}
+.tokenBorder {
+    border: 1px dashed black;
 }
 
 </style>
@@ -220,53 +223,53 @@ input {
     <!-- Third Screen, AKA Players -->
 
     <div class="containerPlayers playersScreen text-center">
-        <div class="innerContainersPlayers playersScreen">
+        <div class="innerContainersPlayers playersScreen playerBoxOne">
             <h2 class="playerTitleText playersScreen">Player One</h2>
             <form>
                 <p>Player Nickname</p>
                 <input type="text" id="playerOneName">
                 <p>Choose a Token:</p>
                 <p>
-                    <img src="assets/images/tokens/cannon.jpg" class="playerToken" id="choiceOne">
-                    <img src="assets/images/tokens/car.jpg" class="playerToken" id="choiceTwo">
-                    <img src="assets/images/tokens/dog.jpg" class="playerToken" id="choiceThree">
-                    <img src="assets/images/tokens/hat.jpg" class="playerToken" id="choiceFour">
-                    <img src="assets/images/tokens/horse.jpg" class="playerToken" id="choiceFive">
+                    <img src="assets/images/tokens/cannon.png" class="playerTokenOne" id="choiceOne">
+                    <img src="assets/images/tokens/car.png" class="playerTokenOne" id="choiceTwo">
+                    <img src="assets/images/tokens/dog.png" class="playerTokenOne" id="choiceThree">
+                    <img src="assets/images/tokens/hat.png" class="playerTokenOne" id="choiceFour">
+                    <img src="assets/images/tokens/horse.png" class="playerTokenOne" id="choiceFive">
                 </p>
                 <p>
-                    <img src="assets/images/tokens/iron.jpg" class="playerToken" id="choiceSix">
-                    <img src="assets/images/tokens/plane.jpg" class="playerToken" id="choiceSeven">
-                    <img src="assets/images/tokens/ship.jpg" class="playerToken" id="choiceEight">
-                    <img src="assets/images/tokens/thumbtack.jpg" class="playerToken" id="choiceNine">
-                    <img src="assets/images/tokens/wheelbarrow.jpg" class="playerToken" id="choiceTen">
+                    <img src="assets/images/tokens/iron.png" class="playerTokenOne" id="choiceSix">
+                    <img src="assets/images/tokens/plane.png" class="playerTokenOne" id="choiceSeven">
+                    <img src="assets/images/tokens/ship.png" class="playerTokenOne" id="choiceEight">
+                    <img src="assets/images/tokens/thumbtack.png" class="playerTokenOne" id="choiceNine">
+                    <img src="assets/images/tokens/wheelbarrow.png" class="playerTokenOne" id="choiceTen">
                 </p>
-                <p>Click the die to roll.</p>
-                <p><img class="die" id="playerOneDie" src="assets/images/dice/BeforeRolled.png" alt="Roll the die!"></p>
+                <p>Click the die to roll. Highest roll plays first!</p>
+                <p><img width="65" id="playerOneDie" src="assets/images/dice/BeforeRolled.png" alt="Roll the die!"></p>
                 <button class="btn btn-danger playerButton" id="submitOne">Submit</button>
             </form>
         </div>
-        <div class="innerContainersPlayers playersScreen">
+        <div class="innerContainersPlayers playersScreen playerBoxTwo">
             <h2 class="playersScreen playerTitleText">Player Two</h2>
             <form>
             <p>Player Nickname</p>
                 <input type="text" id="playerTwoName">
                 <p>Choose a Token:</p>
                 <p>
-                    <img src="assets/images/tokens/cannon.jpg" class="playerToken" id="choiceOne">
-                    <img src="assets/images/tokens/car.jpg" class="playerToken" id="choiceTwo">
-                    <img src="assets/images/tokens/dog.jpg" class="playerToken" id="choiceThree">
-                    <img src="assets/images/tokens/hat.jpg" class="playerToken" id="choiceFour">
-                    <img src="assets/images/tokens/horse.jpg" class="playerToken" id="choiceFive">
+                    <img src="assets/images/tokens/cannon.png" class="playerTokenTwo" id="choiceOne">
+                    <img src="assets/images/tokens/car.png" class="playerTokenTwo" id="choiceTwo">
+                    <img src="assets/images/tokens/dog.png" class="playerTokenTwo" id="choiceThree">
+                    <img src="assets/images/tokens/hat.png" class="playerTokenTwo" id="choiceFour">
+                    <img src="assets/images/tokens/horse.png" class="playerTokenTwo" id="choiceFive">
                 </p>
                 <p>
-                    <img src="assets/images/tokens/iron.jpg" class="playerToken" id="choiceSix">
-                    <img src="assets/images/tokens/plane.jpg" class="playerToken" id="choiceSeven">
-                    <img src="assets/images/tokens/ship.jpg" class="playerToken" id="choiceEight">
-                    <img src="assets/images/tokens/thumbtack.jpg" class="playerToken" id="choiceNine">
-                    <img src="assets/images/tokens/wheelbarrow.jpg" class="playerToken" id="choiceTen">
+                    <img src="assets/images/tokens/iron.png" class="playerTokenTwo" id="choiceSix">
+                    <img src="assets/images/tokens/plane.png" class="playerTokenTwo" id="choiceSeven">
+                    <img src="assets/images/tokens/ship.png" class="playerTokenTwo" id="choiceEight">
+                    <img src="assets/images/tokens/thumbtack.png" class="playerTokenTwo" id="choiceNine">
+                    <img src="assets/images/tokens/wheelbarrow.png" class="playerTokenTwo" id="choiceTen">
                 </p>
-                <p>Click the die to roll.</p>
-                 <p><img class="die" id="playerTwoDie" src="assets/images/dice/BeforeRolled.png" alt="Roll the die!"></p>
+                <p>Click the die to roll. Highest roll plays first!</p>
+                 <p><img width="65" id="playerTwoDie" src="assets/images/dice/BeforeRolled.png" alt="Roll the die!"></p>
                 <button class="btn btn-danger playerButton" id="submitTwo">Submit</button>
             </form>
         </div>
@@ -306,36 +309,78 @@ $(document).on('click', '#instructionsGoToGame', function (){
 
         // Sandy, if you're looking at this, this is as far as I got. Trying to think how to store the token choices and die roll.
 
-var playerOneDie;
-var playerTwoDie;
-
-$('.die').on('click', function (){
-    if ($(this).attr('id', 'playerOneDie')) {
-       var ranDieOne = Math.floor(Math.random()*7);
-       playerOneDie = ranDieOne;
-       $('#playerOneDie').attr('src', '/assets/images/dice/' + ranDieOne + '.jpg');
-    }
-    if ($(this).attr('id', 'playerTwoDie')) {
-       var ranDieTwo = Math.floor(Math.random()*7);
-       playerTwoDie = ranDieTwo;
-       $('#playerOneDie').attr('src', '/assets/images/dice/' + ranDieTwo + '.jpg');
-    }
-})
+var playerOneDie, playerTwoDie;
+var ranDieOne = Math.ceil(Math.random()*6);
+var ranDieTwo = Math.ceil(Math.random()*6);
 
 var playerOne = {};
 var playerTwo = {};
 
-$(document).on('click', '.playerButton', function (){
-    event.preventDefault();
-    if ($(this).attr('id', 'playerOne')){
-        playerOne.name = $('#playerOneName').val();
-    };
+playerOne.name = $('#playerOneName').val();
+playerTwo.name = $('#playerTwoName').val();
 
-    if ($(this).attr('id', 'playerTwo')){
-        playerTwo.name = $('#playerTwoName').val();
-
-    };
+$(document).on('click', '.playerTokenOne', function(){
+    if (playerOne.token == undefined){
+        playerOne.token = $(this).attr('src');
+        $(this).addClass('tokenBorder');
+    }
 });
+
+$(document).on('click', '.playerTokenTwo', function(){
+    if (playerTwo.token == undefined){
+        playerTwo.token = $(this).attr('src');
+        $(this).addClass('tokenBorder');
+    }
+});
+
+$(document).on('click', '#playerOneDie', function (){
+    if (ranDieOne == ranDieTwo){
+        ranDieOne = Math.ceil(Math.random()*6);
+    }else {
+       playerOneDie = ranDieOne;
+       $('#playerOneDie').attr('src', 'assets/images/dice/' + ranDieOne + '.png').addClass('die');
+       playerOne.firstroll = ranDieOne;
+    }
+});
+
+$(document).on('click', '#playerTwoDie', function (){  
+    if (ranDieTwo == ranDieOne){
+      ranDieTwo = Math.ceil(Math.random()*6);
+    } else {
+        playerTwoDie = ranDieTwo;
+        $('#playerTwoDie').attr('src', 'assets/images/dice/' + ranDieTwo + '.png').addClass('die');
+        playerTwo.firstroll = ranDieTwo;
+    }
+});
+
+
+$(document).on('click', '#submitOne', function (){
+    event.preventDefault();
+    if ($('#playerOneName').val() == ''){
+        alert('Please enter your name, Player One.');
+    }else if (playerOne.token == undefined){
+        alert('Please choose a token, Player One.')
+    }else if (playerOne.firstroll == undefined){
+        alert('Please click the die to roll, Player One.')
+    }else {
+        $('.playerBoxOne').hide();
+    }
+});
+
+$(document).on('click', '#submitTwo', function (){
+    event.preventDefault();
+    if ($('#playerTwoName').val() == ''){
+        alert('Please enter your name, Player Two.');
+    }else if (playerTwo.firstroll == undefined){
+        alert('Please choose a token, Player Two.')
+    }else if (playerTwo.token == undefined){
+        alert('Please click the die to roll, Player Two.');
+    }else {
+        $('.playerBoxTwo').hide();
+    }
+});
+    
+
 
 
    </script>
