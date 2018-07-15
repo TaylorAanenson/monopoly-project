@@ -316,9 +316,6 @@ var ranDieTwo = Math.ceil(Math.random()*6);
 var playerOne = {};
 var playerTwo = {};
 
-playerOne.name = $('#playerOneName').val();
-playerTwo.name = $('#playerTwoName').val();
-
 $(document).on('click', '.playerTokenOne', function(){
     if (playerOne.token == undefined){
         playerOne.token = $(this).attr('src');
@@ -363,6 +360,7 @@ $(document).on('click', '#submitOne', function (){
     }else if (playerOne.firstroll == undefined){
         alert('Please click the die to roll, Player One.')
     }else {
+        playerOne.name = $('#playerOneName').val();
         $('.playerBoxOne').hide();
     }
 });
@@ -376,6 +374,7 @@ $(document).on('click', '#submitTwo', function (){
     }else if (playerTwo.token == undefined){
         alert('Please click the die to roll, Player Two.');
     }else {
+        playerTwo.name = $('#playerTwoName').val();
         $('.playerBoxTwo').hide();
     }
 });
