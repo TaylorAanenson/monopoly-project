@@ -10,7 +10,7 @@
 
 /* adds SF background to page */
 body {
-    background: white url('../monopoly-project/assets/images/san-francisco-image-1200.jpg');
+    background: white url('../monopoly-project/assets/images/background/san-francisco-image-1200.jpg');
     background-position: fixed center center;
 }
 
@@ -141,11 +141,12 @@ input {
     margin-bottom: 10px;
 }
 .playerToken {
-    width: 15px;
-    height: 15px;
-    border: 1px solid black;
-    margin: 5px 5px 20px 5px;
-    padding: 5px;
+    width: 40px;
+    height: 40px;
+    margin: 5px;
+}
+.die {
+    width: 75px;
 }
 
 </style>
@@ -224,23 +225,23 @@ input {
             <form>
                 <p>Player Nickname</p>
                 <input type="text" id="playerOneName">
-                <p>Choose a Token</p>
+                <p>Choose a Token:</p>
                 <p>
-                    <span class="playerToken" id="choiceOne">*</span>
-                    <span class="playerToken" id="choiceTwo">*</span>
-                    <span class="playerToken" id="choiceThree">*</span>
-                    <span class="playerToken" id="choiceFour">*</span>
-                    <span class="playerToken" id="choiceFive">*</span>
+                    <img src="assets/images/tokens/cannon.jpg" class="playerToken" id="choiceOne">
+                    <img src="assets/images/tokens/car.jpg" class="playerToken" id="choiceTwo">
+                    <img src="assets/images/tokens/dog.jpg" class="playerToken" id="choiceThree">
+                    <img src="assets/images/tokens/hat.jpg" class="playerToken" id="choiceFour">
+                    <img src="assets/images/tokens/horse.jpg" class="playerToken" id="choiceFive">
                 </p>
                 <p>
-                    <span class="playerToken" id="choiceSix">*</span>
-                    <span class="playerToken" id="choiceSeven">*</span>
-                    <span class="playerToken" id="choiceEight">*</span>
-                    <span class="playerToken" id="choiceNine">*</span>
-                    <span class="playerToken" id="choiceTen">*</span>
+                    <img src="assets/images/tokens/iron.jpg" class="playerToken" id="choiceSix">
+                    <img src="assets/images/tokens/plane.jpg" class="playerToken" id="choiceSeven">
+                    <img src="assets/images/tokens/ship.jpg" class="playerToken" id="choiceEight">
+                    <img src="assets/images/tokens/thumbtack.jpg" class="playerToken" id="choiceNine">
+                    <img src="assets/images/tokens/wheelbarrow.jpg" class="playerToken" id="choiceTen">
                 </p>
-                <p>Roll the Die!</p>
-                <!-- die goes here -->
+                <p>Click the die to roll.</p>
+                <p><img class="die" id="playerOneDie" src="assets/images/dice/BeforeRolled.png" alt="Roll the die!"></p>
                 <button class="btn btn-danger playerButton" id="submitOne">Submit</button>
             </form>
         </div>
@@ -249,23 +250,23 @@ input {
             <form>
             <p>Player Nickname</p>
                 <input type="text" id="playerTwoName">
-                <p>Choose a Token</p>
+                <p>Choose a Token:</p>
                 <p>
-                    <span class="playerToken" id="choiceOne">*</span>
-                    <span class="playerToken" id="choiceTwo">*</span>
-                    <span class="playerToken" id="choiceThree">*</span>
-                    <span class="playerToken" id="choiceFour">*</span>
-                    <span class="playerToken" id="choiceFive">*</span>
+                    <img src="assets/images/tokens/cannon.jpg" class="playerToken" id="choiceOne">
+                    <img src="assets/images/tokens/car.jpg" class="playerToken" id="choiceTwo">
+                    <img src="assets/images/tokens/dog.jpg" class="playerToken" id="choiceThree">
+                    <img src="assets/images/tokens/hat.jpg" class="playerToken" id="choiceFour">
+                    <img src="assets/images/tokens/horse.jpg" class="playerToken" id="choiceFive">
                 </p>
                 <p>
-                    <span class="playerToken" id="choiceSix">*</span>
-                    <span class="playerToken" id="choiceSeven">*</span>
-                    <span class="playerToken" id="choiceEight">*</span>
-                    <span class="playerToken" id="choiceNine">*</span>
-                    <span class="playerToken" id="choiceTen">*</span>
+                    <img src="assets/images/tokens/iron.jpg" class="playerToken" id="choiceSix">
+                    <img src="assets/images/tokens/plane.jpg" class="playerToken" id="choiceSeven">
+                    <img src="assets/images/tokens/ship.jpg" class="playerToken" id="choiceEight">
+                    <img src="assets/images/tokens/thumbtack.jpg" class="playerToken" id="choiceNine">
+                    <img src="assets/images/tokens/wheelbarrow.jpg" class="playerToken" id="choiceTen">
                 </p>
-                <p>Roll the Die!</p>
-                <!-- die goes here -->
+                <p>Click the die to roll.</p>
+                 <p><img class="die" id="playerTwoDie" src="assets/images/dice/BeforeRolled.png" alt="Roll the die!"></p>
                 <button class="btn btn-danger playerButton" id="submitTwo">Submit</button>
             </form>
         </div>
@@ -303,6 +304,24 @@ $(document).on('click', '#instructionsGoToGame', function (){
         }
    });
 
+        // Sandy, if you're looking at this, this is as far as I got. Trying to think how to store the token choices and die roll.
+
+var playerOneDie;
+var playerTwoDie;
+
+$('.die').on('click', function (){
+    if ($(this).attr('id', 'playerOneDie')) {
+       var ranDieOne = Math.floor(Math.random()*7);
+       playerOneDie = ranDieOne;
+       $('#playerOneDie').attr('src', '/assets/images/dice/' + ranDieOne + '.jpg');
+    }
+    if ($(this).attr('id', 'playerTwoDie')) {
+       var ranDieTwo = Math.floor(Math.random()*7);
+       playerTwoDie = ranDieTwo;
+       $('#playerOneDie').attr('src', '/assets/images/dice/' + ranDieTwo + '.jpg');
+    }
+})
+
 var playerOne = {};
 var playerTwo = {};
 
@@ -310,8 +329,6 @@ $(document).on('click', '.playerButton', function (){
     event.preventDefault();
     if ($(this).attr('id', 'playerOne')){
         playerOne.name = $('#playerOneName').val();
-        
-
     };
 
     if ($(this).attr('id', 'playerTwo')){
