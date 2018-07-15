@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Start Game</title>
+
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/css/bootstrap.min.css" integrity="sha384-Smlep5jCw/wG7hdkwQ/Z5nLIefveQRIY9nfy6xoR1uRYBtpZgI6339F5dgvm/e9B" crossorigin="anonymous">
+
+
+<style type="text/css">
+
+/* adds SF background to page */
+body {
+    background: white url('../monopoly-project/assets/images/background/san-francisco-image-1200.jpg');
+    background-position: fixed center center;
+}
+
+/* Monopoly Man image and font*/
+.startImg {
+    height: 150px;
+}
+
+@font-face {
+    font-family: Monopoly;
+    src: url('../monopoly-project/assets/fonts/Monopoly/MonopolyRegular.ttf');
+}
+
+/* container, title, text, etc. on first screen, AKA screen 1, Game Start */
+.containerStart {
+    width: 60%;
+    height: 200px;
+    margin: 2% auto;
+}
+.titleStart {
+    background: darkred;
+    border: 5px solid black;
+    box-shadow: 5px 5px 8px black;
+}
+
+h1.startScreen, h2.instructionsScreen, h2.playersScreen {
+    margin: 15px 0px;
+    font-family: Monopoly;
+    font-size: 80px;
+    text-align: center;
+    color: white;
+    text-shadow: 2px 2px black;
+}
+
+#start {
+    margin-top:15px;
+    box-shadow: 5px 5px 8px black;
+}
+
+/* instructions container, text, button, etc. AKA screen 2, Instructions */
+.containerInstructions {
+    background: darkred;
+    border: 5px solid black;
+    box-shadow: 5px 5px 8px black;
+    color: white;
+    text-shadow: 1px 1px black;
+    font-family: sans-serif;
+    font-size: 12px;
+    width: 60%;
+    height: 600px;
+    margin: 1% auto;
+    display: none;
+}
+.instructionsInnerDiv {   
+    width: 100%;
+    height: 400px;
+    padding: 0px 100px;
+    overflow: auto;
+}
+button.instructionsScreen {
+    margin: 0px 0px 25px 0px;
+    box-shadow: 5px 5px 8px black;
+}
+
+.containerInstructions li {
+    text-align: left;
+}
+.hideNum {
+    list-style-type:none;
+}
+.specialCards, h5.instructionsScreen {
+    font-size: 20px;
+    font-family: Monopoly;
+    color: black;
+    font-weight: bolder;
+    text-shadow: 0.5px 0.5px darkslategrey;
+    margin-right: 5px;
+}
+
+/* scrollbar stuff for Instructions innerDiv */
+/* scrollbar width */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+/* scrollbar Track */
+::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 5px black; 
+    border-radius: 10px;
+}
+ 
+/* scrollbar Handle */
+::-webkit-scrollbar-thumb {
+    background: white; 
+    border-radius: 10px;
+}
+
+/* scrollbar Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: white; 
+}
+
+/* Players container, titles, text, etc. AKA screen 3, players */
+.containerPlayers {
+    width: 60%;
+    height: 600px;
+    margin: 1% auto;
+    padding: 0px 10px;
+    display: none;
+}
+.innerContainersPlayers {
+    width: 385px;
+    height: 600px;
+    margin: 0px 5px;
+    background: darkred;
+    border: 5px solid black;
+    box-shadow: 5px 5px 8px black;
+    color: white;
+    text-shadow: 1px 1px black;
+    font-family: sans-serif;
+    font-size: 12px;
+    float: left;    
+}
+.playerTitleText {
+    display: inline;
+}
+input {
+    margin-bottom: 10px;
+}
+.playerTokenOne, .playerTokenTwo {
+    width: 40px;
+    height: 40px;
+    margin: 5px;
+}
+.die {
+    width: 50px;
+}
+.tokenBorder {
+    border: 1px dashed black;
+}
+.mainGame {
+    display: none;
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+    <!-- FIRST SCREEN, AKA Game Start -->
+
+    <div class="containerStart startScreen text-center">
+        <img class="startImg startScreen" src="../monopoly-project/assets/images/MonopolyMan.png" alt="Monopoly Man">
+        <div class="titleStart startScreen">
+            <h1 class="startScreen">SF MONOPOLY</h1>
+        </div>
+        <form>
+            <button class="btn btn-danger startScreen" id="start">Start Game!</button>
+        </form>
+   </div>
+
+   <!-- SECOND SCREEN, AKA Instructions -->
+
+   <div class="containerInstructions instructionsScreen text-center">
+       <h2 class="instructionsScreen">Instructions</h2>
+       <form>
+           <button class="btn btn-danger instructionsScreen" id="instructionsGoToGame" data-gamestart="no">Continue to Game</button>
+       </form>
+       <div class="instructionsInnerDiv instructionsScreen">
+            <h5 class="instructionsScreen">Basics</h5>
+            <p>The object of the game is to become the wealthiest player through buying, renting, and selling of property. Each player begins the game with $1000. 
+                When one player runs out of money, the game ends, and the other player wins. High scores are awarded for particularly rich players who win the game 
+                on bankruptcy of their opponent.</p>
+            <h5 class="instructionsScreen">Game Play</h5>
+             <ol>
+                 <li>Each player clicks the die to roll for first turn. The player with the highest number goes first. Each player starts at the corner marked "GO."</li>
+                 <li> The first player rolls the dice and his/her token moves the number of spaces indicated by the dice.</li>
+                 <li>The tokens remain on the spaces occupied and proceed from that point on the player's next turn. 
+                     Two or more tokens may rest on the same space at the same time.</li> 
+                 <li>Depending on the space your token reaches, you may be entitled to buy real estate, or be obliged to pay rent, draw a Chance or Community Chest card, 
+                     Go To Jail, etc. according to the space.</li>
+             </ol>
+             <h5 class="instructionsScreen">Property and Rent</h5>
+             <ol>
+                 <li>Whenever you land on an unowned property, you may buy that property from the Bank at its printed price. If you decide to buy the property, the other player 
+                     pays rent to you every time they land on that space, based on how much the land was worth when you bought it. Rent is one half of the property price if the property
+                     is owned by a player.</li>
+                 <li>If you choose not to buy the property that you have landed on, the other player gets a chance to buy the property.</li>
+                 <li>If neither you nor the other player buy the property once it has been landed on, then the bank takes control of the property and all players who land on that space
+                     after that turn pay rent to the bank at one quarter the property's original price.</li>
+             </ol>
+             <h5 class="instructionsScreen">Special Squares</h5>
+             <ol>
+                 <li class="hideNum"><span class="specialCards instructionsScreen">GO</span>Each time a player's token lands on or passes over GO, whether by throwing the dice or drawing a card, 
+                     the player collects $200.</li>
+                 <li class="hideNum"><span class="specialCards instructionsScreen">Free Parking</span>A player landing on this place does not receive any money, property or reward of any kind. 
+                     This is just a "free" resting-place.</li>
+                 <li class="hideNum"><span class="specialCards instructionsScreen">Go to Jail</span>You land in Jail when your token lands on the space marked "Go to Jail", 
+                     or you draw a card marked "Go to jail."
+                     When you are sent to Jail you do not pass GO and do not collect $200. Your token moves directly to Jail and then your turn ends. 
+                     To get out of jail for free, roll doubles on your next turn. Otherwise, pay a $50 fine.</li>
+                 <li class="hideNum"><span class="specialCards instructionsScreen">"Just Visiting" Jail</span>If you happen to land on the Jail space during the normal course of your turn, 
+                     you do not pay the fine or have to roll doubles to leave on your next roll. You are simply "visiting jail." 
+                     This space otherwise does not receive any money, property or reward of any kind.</li>
+                 <li class="hideNum"><span class="specialCards instructionsScreen">Chance and Community Chest</span>If you land on a Chance or Community Chest space, you receive a card
+                      with random value associated with "Chance" or "Community Chest." Your turn ends after the instructions on the card are completed.</li>
+             </ol>
+       </div>
+    </div>
+
+    <!-- Third Screen, AKA Players -->
+
+    <div class="containerPlayers playersScreen text-center">
+        <div class="innerContainersPlayers playersScreen playerBoxOne">
+            <h2 class="playerTitleText playersScreen">Player One</h2>
+            <form>
+                <p>Player Nickname</p>
+                <input type="text" id="playerOneName">
+                <p>Choose a Token:</p>
+                <p>
+                    <img src="assets/images/tokens/cannon.png" class="playerTokenOne" id="choiceOne">
+                    <img src="assets/images/tokens/car.png" class="playerTokenOne" id="choiceTwo">
+                    <img src="assets/images/tokens/dog.png" class="playerTokenOne" id="choiceThree">
+                    <img src="assets/images/tokens/hat.png" class="playerTokenOne" id="choiceFour">
+                    <img src="assets/images/tokens/horse.png" class="playerTokenOne" id="choiceFive">
+                </p>
+                <p>
+                    <img src="assets/images/tokens/iron.png" class="playerTokenOne" id="choiceSix">
+                    <img src="assets/images/tokens/plane.png" class="playerTokenOne" id="choiceSeven">
+                    <img src="assets/images/tokens/ship.png" class="playerTokenOne" id="choiceEight">
+                    <img src="assets/images/tokens/thumbtack.png" class="playerTokenOne" id="choiceNine">
+                    <img src="assets/images/tokens/wheelbarrow.png" class="playerTokenOne" id="choiceTen">
+                </p>
+                <p>Click the die to roll. Highest roll plays first!</p>
+                <p><img width="65" id="playerOneDie" src="assets/images/dice/BeforeRolled.png" alt="Roll the die!"></p>
+                <button class="btn btn-danger playerButton" id="submitOne">Submit</button>
+            </form>
+        </div>
+        <div class="innerContainersPlayers playersScreen playerBoxTwo">
+            <h2 class="playersScreen playerTitleText">Player Two</h2>
+            <form>
+            <p>Player Nickname</p>
+                <input type="text" id="playerTwoName">
+                <p>Choose a Token:</p>
+                <p>
+                    <img src="assets/images/tokens/cannon.png" class="playerTokenTwo" id="choiceOne">
+                    <img src="assets/images/tokens/car.png" class="playerTokenTwo" id="choiceTwo">
+                    <img src="assets/images/tokens/dog.png" class="playerTokenTwo" id="choiceThree">
+                    <img src="assets/images/tokens/hat.png" class="playerTokenTwo" id="choiceFour">
+                    <img src="assets/images/tokens/horse.png" class="playerTokenTwo" id="choiceFive">
+                </p>
+                <p>
+                    <img src="assets/images/tokens/iron.png" class="playerTokenTwo" id="choiceSix">
+                    <img src="assets/images/tokens/plane.png" class="playerTokenTwo" id="choiceSeven">
+                    <img src="assets/images/tokens/ship.png" class="playerTokenTwo" id="choiceEight">
+                    <img src="assets/images/tokens/thumbtack.png" class="playerTokenTwo" id="choiceNine">
+                    <img src="assets/images/tokens/wheelbarrow.png" class="playerTokenTwo" id="choiceTen">
+                </p>
+                <p>Click the die to roll. Highest roll plays first!</p>
+                 <p><img width="65" id="playerTwoDie" src="assets/images/dice/BeforeRolled.png" alt="Roll the die!"></p>
+                <button class="btn btn-danger playerButton" id="submitTwo">Submit</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- start Taylor's file -->
+
+        <div class="container mainGame">
+
+            <div id="player1">
+            <h1 class="text-center">Player One</h1>
+        </div>
+        <div id="board"></div>
+        <div id="row1" class="row">
+            <div id="corner1" class="corners"><img id="free-parking" src="assets/images/corners/free-parking.jpg" alt="Free Parking"><span id="player1-free-parking" class="player1-20">#1</span><span id="player2-free-parking" class="player2-20">#2</span></div>
+            <div id="property1" class="properties long-properties"><img id="fleet" class="long-img" src="assets/images/properties/fleet.jpg" alt="Fleet"><span id="player1-fleet" class="player1-60">#1</span><span id="player2-fleet" class="player2-60">#2</span></div>
+            <div id="property2" class="properties long-properties"><img id="trafalgar" class="long-img" src="assets/images/properties/trafalgar.jpg" alt="Trafalgar"><span id="player1-trafalgar" class="player1-60">#1</span><span id="player2-trafalgar" class="player2-60">#2</span></div>
+            <div id="property3" class="properties long-properties"><img id="community-chest-1" class="long-img" src="assets/images/chance:chest/community-chest-1.jpg" alt="Community Chest"><span id="player1-community-chest-1" class="player1-60">#1</span><span id="player2-community-chest-1" class="player2-60">#2</span></div>
+            <div id="property4" class="properties long-properties"><img id="coventry" class="long-img" src="assets/images/properties/coventry.jpg" alt="Coventry"><span id="player1-coventry" class="player1-60">#1</span><span id="player2-coventry" class="player2-60">#2</span></div>
+            <div id="property5" class="properties long-properties"><img id="piccaddily" class="long-img" src="assets/images/properties/piccaddily.jpg" alt="Piccaddily"><span id="player1-piccaddily" class="player1-60">#1</span><span id="player2-piccaddily" class="player2-60">#2</span></div>
+            <div id="corner2" class="corners"><img id="go-to-jail" src="assets/images/corners/go-to-jail.jpg" alt="Go To Jail"><span id="player1-go-to-jail" class="player1-20">#1</span><span id="player2-go-to-jail" class="player2-20">#2</span></div>
+        </div>
+        <div id="row2" class="row">
+            <div id="property6" class="properties wide-properties"><img id="vine" class="wide-img" src="assets/images/properties/vine.jpg" alt="Vine"><span id="player1-vine" class="player1-20">#1</span><span id="player2-vine" class="player2-20">#2</span></div>
+            <div id="property7" class="properties wide-properties end-properties"><img id="oxford" class="wide-img" src="assets/images/properties/oxford.jpg" alt="Oxford"><span id="player1-oxford" class="player1-20">#1</span><span id="player2-oxford" class="player2-20">#2</span></div>
+        </div>
+        <div id="row3" class="row">
+            <div id="property8" class="properties wide-properties"><img id="marlborough" class="wide-img" src="assets/images/properties/marlborough.jpg" alt="Marlborough"><span id="player1-marlborough" class="player1-20">#1</span><span id="player2-marlborough" class="player2-20">#2</span></div>
+            <div id="property9" class="properties wide-properties end-properties"><img id="bond" class="wide-img" src="assets/images/properties/bond.jpg" alt="Bond"><span id="player1-bond" class="player1-20">#1</span><span id="player2-bond" class="player2-20">#2</span></div>
+        </div>
+        <div id="row4" class="row">
+            <div id="property10" class="properties wide-properties"><img id="chance-1" class="wide-img" src="assets/images/chance:chest/chance-1.jpg" alt="Chance"><span id="player1-chance-1" class="player1-20">#1</span><span id="player2-chance-1" class="player2-20">#2</span></div>
+            <div id="property11" class="properties wide-properties end-properties"><img id="chance-2" class="wide-img" src="assets/images/chance:chest/chance-2.jpg" alt="Chance"><span id="player1-chance-2" class="player1-20">#1</span><span id="player2-chance-2" class="player2-20">#2</span></div>
+        </div>
+        <div id="row5" class="row">
+            <div id="property12" class="properties wide-properties"><img id="north" class="wide-img" src="assets/images/properties/north.jpg" alt="North"><span id="player1-north" class="player1-20">#1</span><span id="player2-north" class="player2-20">#2</span></div>
+            <div id="property13" class="properties wide-properties end-properties"><img id="park" class="wide-img" src="assets/images/properties/park.jpg" alt="Park"><span id="player1-park" class="player1-20">#1</span><span id="player2-park" class="player2-20">#2</span></div>
+        </div>
+        <div id="row6" class="row">
+            <div id="property14" class="properties wide-properties"><img id="whitehall" class="wide-img" src="assets/images/properties/whitehall.jpg" alt="Whitehall"><span id="player1-whitehall" class="player1-20">#1</span><span id="player2-whitehall" class="player2-20">#2</span></div>
+            <div id="property15" class="properties wide-properties end-properties"><img id="mayfair" class="wide-img" src="assets/images/properties/mayfair.jpg" alt="Mayfair"><span id="player1-mayfair" class="player1-20">#1</span><span id="player2-mayfair" class="player2-20">#2</span></div>
+        </div>
+        <div id="row7" class="row">
+            <div id="corner3" class="corners"><img id="in-jail" src="assets/images/corners/in-jail.jpg" alt="In Jail"><span id="player1-in-jail" class="player1-20">#1</span><span id="player2-in-jail" class="player2-20">#2</span></div>
+            <div id="property16" class="properties long-properties"><img id="pentonville" class="long-img" src="assets/images/properties/pentonville.jpg" alt="Pentonville"><span id="player1-pentonville" class="player1-20">#1</span><span id="player2-pentonville" class="player2-20" class="player2-20">#2</span></div>
+            <div id="property17" class="properties long-properties"><img id="angel" class="long-img" src="assets/images/properties/angel.jpg" alt="Angel"><span id="player1-angel" class="player1-20">#1</span><span id="player2-angel" class="player2-20">#2</span></div>
+            <div id="property18" class="properties long-properties"><img id="community-chest-2" class="long-img" src="assets/images/chance:chest/community-chest-2.jpg" alt="Community Chest"><span id="player1-community-chest-2" class="player1-20">#1</span><span id="player2-community-chest-2" class="player2-20">#2</span></div>
+            <div id="property19" class="properties long-properties"><img id="old-kent-2" class="long-img" src="assets/images/properties/old-kent.jpg" alt="Old Kent"><span id="player1-old-kent-2" class="player1-20">#1</span><span id="player2-old-kent-2" class="player2-20">#2</span></div>
+            <div id="property20" class="properties long-properties"><img id="old-kent-1" class="long-img" src="assets/images/properties/old-kent.jpg" alt="Old Kent"><span id="player1-old-kent-1" class="player1-20">#1</span><span id="player2-old-kent-1" class="player2-20">#2</span></div>
+            <div id="corner4" class="corners"><img id="go" src="assets/images/corners/go.jpg" alt="Go"><span id="player1-go" class="player1-20">#1</span><span id="player2-go" class="player2-20">#2</span></div>
+        </div>
+        <div id="player2">
+            <h1 class="text-center">Player Two</h1>
+        </div>
+        </div>
+    </div>
+    
+     <!-- JQUERY for moving between screens on page load -->
+
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+   <script type="text/javascript">
+   $('#start').on('click', function (){
+        event.preventDefault();
+       $('.containerStart').hide();
+       $('.containerInstructions').show();
+   });
+
+   $(document).on('click', '#instructionsGoToGame', function (){
+        event.preventDefault();
+
+        // This is so we can have a button on screen 4, Main Game, to view/show the instructions mid-game on click of another button, if we want.
+        if ($(this).attr('data-gamestart') == 'no'){
+            $('.containerInstructions').hide();
+            $('.containerPlayers').show();
+            $(this).attr('data-gamestart', 'yes');
+        }
+   });
+
+$(document).on('click', '#instructionsGoToGame', function (){
+        event.preventDefault();
+
+        // This is so we can have a button on screen 4, Main Game, to view/show the instructions mid-game on click of another button, if we want.
+        if ($(this).attr('data-gamestart') == 'no'){
+            $('.containerInstructions').hide();
+            $('.containerPlayers').show();
+            $(this).attr('data-gamestart', 'yes');
+        }
+   });
+
+        // Sandy, if you're looking at this, this is as far as I got. Trying to think how to store the token choices and die roll.
+
+var playerOneDie, playerTwoDie;
+var ranDieOne = Math.ceil(Math.random()*6);
+var ranDieTwo = Math.ceil(Math.random()*6);
+
+var playerOne = {};
+var playerTwo = {};
+
+$(document).on('click', '.playerTokenOne', function(){
+    if (playerOne.token == undefined){
+        playerOne.token = $(this).attr('src');
+        $(this).addClass('tokenBorder');
+    }
+});
+
+$(document).on('click', '.playerTokenTwo', function(){
+    if (playerTwo.token == undefined){
+        playerTwo.token = $(this).attr('src');
+        $(this).addClass('tokenBorder');
+    }
+});
+
+$(document).on('click', '#playerOneDie', function (){
+    if (ranDieOne == ranDieTwo){
+        ranDieOne = Math.ceil(Math.random()*6);
+    }else {
+       playerOneDie = ranDieOne;
+       $('#playerOneDie').attr('src', 'assets/images/dice/' + ranDieOne + '.png').addClass('die');
+       playerOne.firstroll = ranDieOne;
+    }
+});
+
+$(document).on('click', '#playerTwoDie', function (){  
+    if (ranDieTwo == ranDieOne){
+      ranDieTwo = Math.ceil(Math.random()*6);
+    } else {
+        playerTwoDie = ranDieTwo;
+        $('#playerTwoDie').attr('src', 'assets/images/dice/' + ranDieTwo + '.png').addClass('die');
+        playerTwo.firstroll = ranDieTwo;
+    }
+});
+
+
+$(document).on('click', '#submitOne', function (){
+    event.preventDefault();
+    if ($('#playerOneName').val() == ''){
+        alert('Please enter your name, Player One.');
+    }else if (playerOne.token == undefined){
+        alert('Please choose a token, Player One.')
+    }else if (playerOne.firstroll == undefined){
+        alert('Please click the die to roll, Player One.')
+    }else {
+        playerOne.name = $('#playerOneName').val();
+        $('.playerBoxOne').hide();
+    }
+});
+
+$(document).on('click', '#submitTwo', function (){
+    event.preventDefault();
+    if ($('#playerTwoName').val() == ''){
+        alert('Please enter your name, Player Two.');
+    }else if (playerTwo.token == undefined){
+        alert('Please choose a token, Player Two.')
+    }else if (playerTwo.firstroll == undefined){
+        alert('Please click the die to roll, Player Two.');
+    }else {
+        playerTwo.name = $('#playerTwoName').val();
+        $('.playerBoxTwo').hide();
+    }
+});
+    
+
+
+
+   </script>
+</body>
+</html>
