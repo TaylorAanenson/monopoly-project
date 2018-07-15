@@ -1,6 +1,158 @@
+/* adds SF background to page */
 body {
-    background-image: url(../images/background/san-francisco-image-1200.jpg);
+    background: white url('../images/background/san-francisco-image-1200.jpg');
+    background-position: fixed center center;
 }
+
+/* Monopoly Man image and font*/
+.startImg {
+    height: 150px;
+}
+
+@font-face {
+    font-family: Monopoly;
+    src: url('../fonts/Monopoly/MonopolyRegular.ttf');
+}
+
+/* container, title, text, etc. on first screen, AKA screen 1, Game Start */
+.containerStart {
+    width: 60%;
+    height: 200px;
+    margin: 2% auto;
+}
+.titleStart {
+    background: darkred;
+    border: 5px solid black;
+    box-shadow: 5px 5px 8px black;
+}
+
+h1.startScreen, h2.instructionsScreen, h2.playersScreen {
+    margin: 15px 0px;
+    font-family: Monopoly;
+    font-size: 80px;
+    text-align: center;
+    color: white;
+    text-shadow: 2px 2px black;
+}
+
+#start {
+    margin-top:15px;
+    box-shadow: 5px 5px 8px black;
+}
+
+/* instructions container, text, button, etc. AKA screen 2, Instructions */
+.containerInstructions {
+    background: darkred;
+    border: 5px solid black;
+    box-shadow: 5px 5px 8px black;
+    color: white;
+    text-shadow: 1px 1px black;
+    font-family: sans-serif;
+    font-size: 12px;
+    width: 60%;
+    height: 600px;
+    margin: 1% auto;
+    display: none;
+}
+.instructionsInnerDiv {   
+    width: 100%;
+    height: 400px;
+    padding: 0px 100px;
+    overflow: auto;
+}
+button.instructionsScreen {
+    margin: 0px 0px 25px 0px;
+    box-shadow: 5px 5px 8px black;
+}
+
+.containerInstructions li {
+    text-align: left;
+}
+.hideNum {
+    list-style-type:none;
+}
+.specialCards, h5.instructionsScreen {
+    font-size: 20px;
+    font-family: Monopoly;
+    color: black;
+    font-weight: bolder;
+    text-shadow: 0.5px 0.5px darkslategrey;
+    margin-right: 5px;
+}
+
+/* scrollbar stuff for Instructions innerDiv */
+/* scrollbar width */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+/* scrollbar Track */
+::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 5px black; 
+    border-radius: 10px;
+}
+ 
+/* scrollbar Handle */
+::-webkit-scrollbar-thumb {
+    background: white; 
+    border-radius: 10px;
+}
+
+/* scrollbar Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: white; 
+}
+
+/* Players container, titles, text, etc. AKA screen 3, players */
+.containerPlayers {
+    width: 65%;
+    height: 600px;
+    margin: 1% auto;
+    padding: 0px 10px;
+    display: none;
+}
+.innerContainersPlayers {
+    width: 385px;
+    height: 360px;
+    margin: 100px 5px 20px 5px;
+    background: darkred;
+    border: 5px solid black;
+    box-shadow: 5px 5px 8px black;
+    color: white;
+    text-shadow: 1px 1px black;
+    font-family: sans-serif;
+    font-size: 12px;
+    float: left;    
+}
+.playerButton{
+    margin-top: 20px;
+    width: 200px;
+    margin-bottom: 20px;
+}
+.playerTitleText {
+    display: inline;
+}
+input {
+    margin-bottom: 10px;
+}
+.playerTokenOne, .playerTokenTwo {
+    width: 40px;
+    height: 40px;
+    margin: 5px;
+}
+.die {
+    width: 50px;
+}
+.tokenBorder {
+    border: 1px dashed black;
+}
+.containerMainGame {
+    display: none;
+}
+
+
+/* Taylors */
+
 #player1 {
     float: left;
     background-color: rgb(100, 51, 153,0.4);
@@ -141,4 +293,18 @@ body {
 }
 #player2-pentonville, #player2-fleet {
     right: 75%;
+}
+
+
+/* Player Info on the Game Board */
+#playerTwoGameName,#playerOneGameName,#playerOneGameCashDiv,#playerTwoGameCashDiv{
+    height: 40px;
+    width: 100%;
+    text-align: center;
+    font-weight: 700;
+    margin: 20px auto;
+}
+#playerOneGameOwnedPropertiesDiv,#playerTwoGameOwnedPropertiesDiv{
+    height: 28%;
+    background-color: red;
 }
