@@ -15,6 +15,14 @@ body {
     font-family: Monopoly;
     src: url('../fonts/Monopoly/MonopolyRegular.ttf');
 }
+@font-face {
+    font-family: Monopoly-Bold;
+    src: url('../fonts/Monopoly/MonopolyBold.ttf');
+}
+.body {
+    float: left;
+    height: 715px;
+}
 
 /* container, title, text, etc. on first screen, AKA screen 1, Game Start */
 .containerStart {
@@ -157,21 +165,76 @@ input {
 /* Taylors */
 
 #player1 {
-    float: left;
     background-color: rgb(100, 51, 153,0.4);
-    height: 715px;
     width: 23%;
 }
-#board {
-    float: left;
+.playerH1 {
+    font-family: Monopoly-Bold;
+    font-size: 40px;
+    line-height:55px;
+    text-align: center;
+    color: black;
+}
+.playerH2 {
+    font-family: Monopoly;
+    font-size: 30px;
+    line-height:40px;
+    text-align: left;
+    color: black;
+}
+#money-symbol {
+    width: 25px;
+}
+#player1-info {
+    background-color: rgb(65, 104, 226,0.4);
+    height: 350px;
+    width: 90%;
+}
+#player2-info {
+    background-color: rgb(100, 51, 153,0.4);
+    height: 350px;
+    width: 90%;
+}
+.players-properties {
+    margin-top: 20px;
+}
+#player1-properties, #player2-properties {
+    height: 210px;
+    width: 90%;
+}
+#playerOneGameOwnedPropertiesDiv, #playerTwoGameOwnedPropertiesDiv {
     background-color: rgb(255, 2, 1,0.5);
-    height: 715px;
+    height: 28%;
+    width: 90%;
+    padding: 20px;
+    margin-top: 3px;
+}
+
+#player1-interactions, #player2-interactions {
+    background-color: rgb(255, 2, 1,0.5);
+    height: 28%;
+    width: 90%;
+    padding: 20px;
+    margin-top: 3px;
+    display: none;
+}
+
+#player1-chance-chest, #player2-chance-chest, #other {
+    height: 80px;
+    margin-top: 10px;
+}
+.btn-success {
+    margin-left: 29%;
+}
+.btn-danger {
+    margin-left: 2%;
+}
+#board {
+    background-color: rgb(255, 2, 1,0.5);
     width: 54%;
 }
 #player2 {
-    float: left;
     background-color: rgb(65, 104, 226,0.4);
-    height: 715px;
     width: 23%;
 }
 .row {
@@ -229,31 +292,44 @@ input {
     height: 120px;
     width: 100%;
 }
-.player1-20 {
+.display-none {
+    display: none;
+}
+.player1 {
     position: absolute;
-    bottom: 20%;
     color: yellow;
 }
-.player1-60 {
+.player2 {
     position: absolute;
-    bottom: 60%;
-    color: yellow;
+    color: red;
 }
-.player2-20 {
-    position: absolute;
+.bottom-20 {
     bottom: 20%;
-    color: red;
 }
-.player2-60 {
-    position: absolute;
-    bottom: 60%;
-    color: red;
+.bottom-60 {
+    bottom: 60%; 
 }
-#player1-free-parking, #player1-in-jail, #player1-chance-1, #player1-whitehall, #player1-north, #player1-marlborough, #player1-vine {
+#player1-free-parking, #player1-chance-1, #player1-whitehall, #player1-north, #player1-marlborough, #player1-vine {
     left: 4%;
 }
-#player2-free-parking, #player2-in-jail, #player2-chance-1, #player2-whitehall, #player2-north, #player2-marlborough, #player2-vine {
+#player2-free-parking, #player2-chance-1, #player2-whitehall, #player2-north, #player2-marlborough, #player2-vine {
     left: 8%;
+}
+#player1-in-jail {
+    left: 6%;
+    bottom: 40%;
+}
+#player2-in-jail {
+    left: 10%;
+    bottom: 40%;
+}
+#player1-visiting-jail {
+    left: 3%;
+    bottom: 3%;
+}
+#player2-visiting-jail {
+    left: 8%;
+    bottom: 3%;
 }
 #player1-go-to-jail, #player1-go {
     right: 9%;
@@ -274,13 +350,13 @@ input {
     right: 47%;
 }
 #player1-old-kent-1, #player1-piccaddily {
-    left: 75%;
+    right: 23%;
 }
 #player2-old-kent-1, #player2-piccaddily {
     right: 19%;
 }
 #player1-old-kent-2, #player1-coventry {
-    left: 61%;
+    right: 37%;
 }
 #player2-old-kent-2, #player2-coventry {
     right: 33%;
@@ -289,13 +365,13 @@ input {
     left: 33%;
 }
 #player2-angel, #player2-trafalgar {
-    right: 61%;
+    left: 37%;
 }
 #player1-pentonville, #player1-fleet {
     left: 19%;
 }
 #player2-pentonville, #player2-fleet {
-    right: 75%;
+    left: 23%;
 }
 
 
@@ -307,7 +383,4 @@ input {
     font-weight: 700;
     margin: 20px auto;
 }
-#playerOneGameOwnedPropertiesDiv,#playerTwoGameOwnedPropertiesDiv{
-    height: 28%;
-    background-color: red;
-}
+
