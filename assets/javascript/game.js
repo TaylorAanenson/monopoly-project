@@ -204,11 +204,6 @@ $(document).on('click', '#instructionsGoToGame', function (){
     }
 });
 
-    // Sandy, if you're looking at this, this is as far as I got. Trying to think how to store the token choices and die roll.
-
-
-
-
 
 $(document).on('click', '.playerTokenOne', function(){
 if (playerOne.token == undefined){

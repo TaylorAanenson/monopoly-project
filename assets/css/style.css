@@ -54,7 +54,7 @@ h1.startScreen, h2.instructionsScreen, h2.playersScreen {
 /* instructions container, text, button, etc. AKA screen 2, Instructions */
 .containerInstructions {
     background: darkred;
-    opacity: 0.9;
+    opacity: 0.95;
     border: 5px solid black;
     box-shadow: 5px 5px 8px black;
     color: white;
@@ -128,7 +128,7 @@ button.instructionsScreen {
     height: 360px;
     margin: 100px 5px 20px 5px;
     background: darkred;
-    opacity: 0.9;
+    opacity: 0.95;
     border: 5px solid black;
     box-shadow: 5px 5px 8px black;
     color: white;
