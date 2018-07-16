@@ -122,87 +122,84 @@ h2 {
     height: 120px;
     width: 100%;
 }
-.player1-20 {
+.display-none {
+    display: none;
+}
+.player1 {
     position: absolute;
-    bottom: 20%;
     color: yellow;
 }
-.player1-60 {
+.player2 {
     position: absolute;
-    bottom: 60%;
-    color: yellow;
+    color: red;
 }
-.player2-20 {
-    position: absolute;
+.bottom-20 {
     bottom: 20%;
-    color: red;
 }
-.player2-60 {
-    position: absolute;
-    bottom: 60%;
-    color: red;
+.bottom-60 {
+    bottom: 60%; 
 }
-#player1-free-parking, #player1-in-jail, #player1-chance-1, #player1-whitehall, #player1-north, #player1-marlborough, #player1-vine {
+#player1-free-parking, #player1-chance-1, #player1-whitehall, #player1-north, #player1-marlborough, #player1-vine {
     left: 4%;
-    display: none;
 }
-#player2-free-parking, #player2-in-jail, #player2-chance-1, #player2-whitehall, #player2-north, #player2-marlborough, #player2-vine {
+#player2-free-parking, #player2-chance-1, #player2-whitehall, #player2-north, #player2-marlborough, #player2-vine {
     left: 8%;
-    display: none;
+}
+#player1-in-jail {
+    left: 6%;
+    bottom: 40%;
+}
+#player2-in-jail {
+    left: 10%;
+    bottom: 40%;
+}
+#player1-visiting-jail {
+    left: 3%;
+    bottom: 3%;
+}
+#player2-visiting-jail {
+    left: 8%;
+    bottom: 3%;
 }
 #player1-go-to-jail, #player1-go {
     right: 9%;
-    display: none;
 }
 #player2-go-to-jail, #player2-go {
     right: 4%;
-    display: none;
 }
 #player1-chance-2, #player1-oxford, #player1-bond, #player1-park, #player1-mayfair {
     left: 25%;
-    display: none;
 }
 #player2-chance-2, #player2-oxford, #player2-bond, #player2-park, #player2-mayfair {
     right: 25%;
-    display: none;
 }
 #player1-community-chest-1, #player1-community-chest-2 {
     left: 47%;
-    display: none;
 }
 #player2-community-chest-1, #player2-community-chest-2 {
     right: 47%;
-    display: none;
 }
 #player1-old-kent-1, #player1-piccaddily {
     right: 23%;
-    display: none;
 }
 #player2-old-kent-1, #player2-piccaddily {
     right: 19%;
-    display: none;
 }
 #player1-old-kent-2, #player1-coventry {
     right: 37%;
-    display: none;
 }
 #player2-old-kent-2, #player2-coventry {
     right: 33%;
-    display: none;
 }
 #player1-angel, #player1-trafalgar {
     left: 33%;
-    display: none;
 }
 #player2-angel, #player2-trafalgar {
     left: 37%;
-    display: none;
 }
 #player1-pentonville, #player1-fleet {
     left: 19%;
-    display: none;
 }
 #player2-pentonville, #player2-fleet {
     left: 23%;
-    display: none;
 }
