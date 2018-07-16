@@ -2,6 +2,8 @@
 body {
     background: white url('../images/background/san-francisco-image-1200.jpg');
     background-position: fixed center center;
+    font-family: sans-serif;
+    font-size: 12px;
 }
 
 /* Monopoly Man image and font*/
@@ -30,6 +32,7 @@ h1.startScreen, h2.instructionsScreen, h2.playersScreen {
     margin: 15px 0px;
     font-family: Monopoly;
     font-size: 80px;
+    line-height: 95px;
     text-align: center;
     color: white;
     text-shadow: 2px 2px black;
@@ -47,8 +50,7 @@ h1.startScreen, h2.instructionsScreen, h2.playersScreen {
     box-shadow: 5px 5px 8px black;
     color: white;
     text-shadow: 1px 1px black;
-    font-family: sans-serif;
-    font-size: 12px;
+    line-height: 18px;
     width: 60%;
     height: 600px;
     margin: 1% auto;
@@ -73,6 +75,7 @@ button.instructionsScreen {
 }
 .specialCards, h5.instructionsScreen {
     font-size: 20px;
+    line-height: 35px;
     font-family: Monopoly;
     color: black;
     font-weight: bolder;
