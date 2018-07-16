@@ -36,6 +36,9 @@ h2 {
     height: 350px;
     width: 90%;
 }
+#player1-money, #player2-money {
+    margin: 10px;
+}
 .players-properties {
     margin-top: 20px;
 }
@@ -43,13 +46,23 @@ h2 {
     height: 210px;
     width: 90%;
 }
+.player-property-img {
+    width: 15%;
+}
 #player1-interactions, #player2-interactions {
     background-color: rgb(255, 2, 1,0.5);
+    height: 304px;
     width: 90%;
     padding: 20px;
     margin-top: 3px;
 }
-#player1-chance-chest, #player2-chance-chest, #other {
+#player1-buy-property, #player2-buy-property {
+    height: 90px;
+}
+#player1-game-die-image, #player2-game-die-image {
+    width: 30%;
+}
+#player1-chance-chest, #player2-chance-chest, #player1-die, #player2-die {
     height: 80px;
     margin-top: 10px;
 }
