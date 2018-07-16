@@ -54,6 +54,7 @@ h1.startScreen, h2.instructionsScreen, h2.playersScreen {
 /* instructions container, text, button, etc. AKA screen 2, Instructions */
 .containerInstructions {
     background: darkred;
+    opacity: 0.9;
     border: 5px solid black;
     box-shadow: 5px 5px 8px black;
     color: white;
@@ -127,6 +128,7 @@ button.instructionsScreen {
     height: 360px;
     margin: 100px 5px 20px 5px;
     background: darkred;
+    opacity: 0.9;
     border: 5px solid black;
     box-shadow: 5px 5px 8px black;
     color: white;
@@ -159,6 +161,7 @@ input {
 }
 .containerMainGame {
     display: none;
+
 }
 
 
@@ -174,6 +177,7 @@ input {
     line-height:55px;
     text-align: center;
     color: black;
+    text-shadow: 1px 1px white;
 }
 .playerH2 {
     font-family: Monopoly;
@@ -181,30 +185,31 @@ input {
     line-height:40px;
     text-align: left;
     color: black;
+    text-shadow: 1px 1px white;
 }
 #money-symbol {
     width: 25px;
 }
 #player1-info {
     background-color: rgb(65, 104, 226,0.4);
-    height: 350px;
+    height: 95%;
     width: 90%;
 }
 #player2-info {
     background-color: rgb(100, 51, 153,0.4);
-    height: 350px;
+    height: 95%;
     width: 90%;
 }
 .players-properties {
     margin-top: 20px;
 }
 #player1-properties, #player2-properties {
-    height: 210px;
+    height: 18%;
     width: 90%;
 }
 #playerOneGameOwnedPropertiesDiv, #playerTwoGameOwnedPropertiesDiv {
     background-color: rgb(255, 2, 1,0.5);
-    height: 28%;
+    height: 18%;
     width: 90%;
     padding: 20px;
     margin-top: 3px;
@@ -212,7 +217,7 @@ input {
 
 #player1-interactions, #player2-interactions {
     background-color: rgb(255, 2, 1,0.5);
-    height: 28%;
+    height: 18%;
     width: 90%;
     padding: 20px;
     margin-top: 3px;

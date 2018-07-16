@@ -270,11 +270,13 @@ $(document).on('click', '#submitPlayerInfo', function (){
             playerOne.turn = true;
             playerTwo.turn = false;
             $("#playerTwoGameDie").hide();
+            $("#playerTwoGameDieImage").hide();
         }
         else{
             playerOne.turn = false;
             playerTwo.turn = true;
             $("#playerOneGameDie").hide();
+            $("#playerOneGameDieImage").hide();
         }
     }
 
@@ -283,6 +285,11 @@ $(document).on('click', '#submitPlayerInfo', function (){
 $(document).on('click','#playerOneGameDie',function(){
     ranDieOne = Math.ceil(Math.random()*6);
     $('#playerOneGameDieImage').attr('src', 'assets/images/dice/' + ranDieOne + '.png').addClass('die');
+
+})
+$(document).on('click','#playerTwoGameDie',function(){
+    ranDieTwo = Math.ceil(Math.random()*6);
+    $('#playerTwoGameDieImage').attr('src', 'assets/images/dice/' + ranDieTwo + '.png').addClass('die');
 
 })
 
