@@ -1,83 +1,321 @@
+/* adds SF background to page */
 body {
-    background-image: url(../images/background/san-francisco-image-1200.jpg);
+    background: #3986ba url('../images/background/san-francisco-image-1200.jpg');
+    font-family: sans-serif;
+    font-size: 12px;
 }
+
+/* Monopoly Man image and font*/
+.startImg {
+    height: 150px;
+}
+
 @font-face {
     font-family: Monopoly;
-    src: url(../fonts/Monopoly\ Regular.ttf)
+    src: url('../fonts/Monopoly/MonopolyRegular.ttf');
 }
 @font-face {
     font-family: Monopoly-Bold;
-    src: url(../fonts/Monopoly\ Bold.ttf)
+    src: url('../fonts/Monopoly/MonopolyBold.ttf');
 }
 .body {
     float: left;
     height: 715px;
 }
-#player1 {
-    background-color: rgb(100, 51, 153,0.4);
+
+/* container, title, text, etc. on first screen, AKA screen 1, Game Start */
+.containerStart {
+    width: 60%;
+    height: 200px;
+    margin: 2% auto;
+}
+.titleStart {
+    background: darkred;
+    border: 5px solid black;
+    box-shadow: 5px 5px 8px black;
+}
+
+h1.startScreen, h2.instructionsScreen, h2.playersScreen, h2.endGameScreen, h2.modalScreen {
+    margin: 15px 0px;
+    font-family: Monopoly;
+    font-size: 80px;
+    line-height: 95px;
+    text-align: center;
+    color: white;
+    text-shadow: 2px 2px black;
+}
+
+#start {
+    margin:15px auto;
+    box-shadow: 5px 5px 8px black;
+}
+
+/* instructions container, text, button, etc. AKA screen 2, Instructions */
+.containerInstructions, .containerEndGame {
+    background: darkred;
+    opacity: 0.95;
+    border: 5px solid black;
+    box-shadow: 5px 5px 8px black;
+    color: white;
+    text-shadow: 1px 1px black;
+    line-height: 18px;
+    width: 60%;
+    height: 600px;
+    margin: 1% auto;
+    display: none;
+}
+.instructionsInnerDiv {   
+    width: 100%;
+    height: 400px;
+    padding: 0px 100px;
+    overflow: auto;
+}
+button.instructionsScreen {
+    margin: 0px 0px 25px 0px;
+    box-shadow: 5px 5px 8px black;
+}
+
+.containerInstructions li {
+    text-align: left;
+    list-style-type: square;
+}
+.hideNum {
+    list-style-type: none;
+}
+.specialCards, h5.instructionsScreen {
+    font-size: 20px;
+    line-height: 35px;
+    font-family: Monopoly;
+    color: black;
+    font-weight: bolder;
+    text-shadow: 0.5px 0.5px darkslategrey;
+    margin-right: 5px;
+}
+
+h5.endGameScreen {
+    font-size: 40px;
+    line-height: 55px;
+    font-family: Monopoly;
+    color: black;
+    font-weight: bolder;
+    text-shadow: 0.5px 0.5px darkslategrey;
+    text-align: center;
+}
+h5.modalScreen{
+    font-size: 40px;
+    line-height: 55px;
+    font-family: Monopoly;
+    color: white;
+    font-weight: bolder;
+    text-shadow: 0.5px 0.5px darkslategrey;
+    text-align: center;
+}
+.modalScreen {
+text-align: center;
+}
+/* scrollbar stuff for Instructions innerDiv */
+/* scrollbar width */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+/* scrollbar Track */
+::-webkit-scrollbar-track {
+    border-radius: 10px;
+}
+ 
+/* scrollbar Handle */
+::-webkit-scrollbar-thumb {
+    box-shadow: inset 0 0 5px black; 
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+    width: 0px;  /* remove scrollbar space */
+    background: transparent;  /* optional: just make scrollbar invisible */
+}
+
+/* Players container, titles, text, etc. AKA screen 3, players */
+
+.containerPlayers {
+    width: 65%;
+    height: 80%;
+    margin-top: 5%;
+    margin-bottom: .5%;
+    margin-left: auto;
+    margin-right: auto;
+    display: none;
+}
+.innerContainersPlayers {
+    width: 49%;
+    height: 100%;
+    margin: 1% .25%;
+    background: darkred;
+    opacity: 0.95;
+    border: 5px solid black;
+    box-shadow: 5px 5px 8px black;
+    color: white;
+    text-shadow: 1px 1px black;
+    font-family: sans-serif;
+    font-size: 12px;
+    float: left;    
+}
+.playerButton {
+    width: 100px;
+    margin: 15px auto;
+    box-shadow: 5px 5px 8px black;
+    /* display: none; */
+}
+
+
+.playerTitleText {
+    display: inline;
+}
+input {
+    margin-bottom: 10px;
+}
+.playerTokenOne, .playerTokenTwo {
+height: 50px;
+}
+
+.die {
+    height: 50px;
+    margin-top: 15px;
+}
+.containerMainGame {
+    display: none;
+
+}
+
+
+/* Taylors */
+
+.body {
+    float: left;
+    height: 715px;
+}
+#playerOne {
+    background-color: rgb(100, 51, 153,0.01);
     width: 23%;
 }
-h1 {
+.playerH1 {
     font-family: Monopoly-Bold;
+    font-size: 40px;
 }
-h2 {
+.playerH2 {
+    font-family: Monopoly;
+    font-size: 28px;
+}
+.h3 {
     font-family: Monopoly;
 }
 #money-symbol {
     width: 10%;
 }
-#player1-info {
-    background-color: rgb(65, 104, 226,0.4);
+#playerOne-info {
+    background-color: rgba(228, 229, 234, 0.7);
     height: 350px;
     width: 90%;
+    border: 2px solid black;
 }
-#player2-info {
-    background-color: rgb(100, 51, 153,0.4);
+#playerTwo-info {
+    background-color: rgba(228, 229, 234, 0.7);
     height: 350px;
     width: 90%;
+    border: 2px solid black;
 }
-#player1-money, #player2-money {
+#playerOneGameName, #playerTwoGameName {
+    padding: 10px;
+    text-align: center;
+}
+#playerOneGameCashDiv, #playerTwoGameCashDiv {
+    text-align: center;
+} 
+#playerOneGameCash, #playerTwoGameCash {
+    font-size: 20px;
     margin: 10px;
 }
 .players-properties {
+    text-align: center;
     margin-top: 20px;
 }
-#player1-properties, #player2-properties {
+#playerOneGameOwnedPropertiesDiv, #playerTwoGameOwnedPropertiesDiv {
     height: 210px;
-    width: 90%;
+    width: 104%;
+    padding-left: 11px;
 }
-.player-property-img {
-    width: 15%;
+.propertiesOwnedImage {
+    width: 60px;
+    height: 50px;
+    margin: 5px;
+    border: 1px solid black;
 }
-#player1-interactions, #player2-interactions {
-    background-color: rgb(255, 2, 1,0.5);
+.propertiesOwnedImage:hover{
+    transform: scale(2.5);
+}
+.die-background {
+    margin-top: 30px;
+    background-color: #ec8b2ca3;
+    width: 110%;
+    margin-left: -5%;
+}
+#playerOneGameDie, #playerTwoGameDie {
+    text-align: center;
+}
+#playerOne-interactions, #playerTwo-interactions {
+    background-color: rgb(255, 2, 1,0.7);
     height: 304px;
-    width: 90%;
+    width: 111%;
     padding: 20px;
-    margin-top: 3px;
+    margin-top: 30px;
+    margin-left: -5%;
+    display: none;
 }
-#player1-buy-property, #player2-buy-property {
-    height: 90px;
+#playerOneBuy, #playerTwoBuy {
+    margin-bottom: 10px;
 }
-#player1-game-die-image, #player2-game-die-image {
-    width: 30%;
+#playerOneInteractionsImageDiv, #playerTwoInteractionsImageDiv {
+    margin-top: 0px;
+    /* padding-left: 25px; */
 }
-#player1-chance-chest, #player2-chance-chest, #player1-die, #player2-die {
+#playerOneInteractionsImage, #playerTwoInteractionsImage {
+    width: 70%;
+    height: 150px;
+    margin-left: 15%;
+    margin-bottom: 10px;
+}
+#playerOneInteractionProperty, #playerTwoInteractionProperty, #playerOneInteractionPrice, #playerTwoInteractionPrice {
+    font-family: Monopoly;
+}
+
+#playerOne-chance-chest, #playerTwo-chance-chest, #other {
     height: 80px;
     margin-top: 10px;
 }
 .btn-success {
-    margin-left: 29%;
+    margin-left: 6%;
+    width: 80px;
 }
-.btn-danger {
-    margin-left: 2%;
+#playerTwoInteractionYes, #playerOneInteractionYes  {
+    margin-left: 15%;
+}
+#playerTwoInteractionNo, #playerOneInteractionNo {
+    margin-left: 5%;
+    width: 80px;
+}
+#playerOneRent, #playerTwoRent {
+    margin-top: 30px;
+}
+#playerOneInteractionContinue, #playerTwoInteractionContinue {
+    width: 100px;
+    margin: 45px;
+    margin-left: 30%;
 }
 #board {
-    background-color: rgb(255, 2, 1,0.5);
     width: 54%;
 }
-#player2 {
-    background-color: rgb(65, 104, 226,0.4);
+#playerTwo {
+    background-color: rgb(65, 104, 226,0.01);
     width: 23%;
 }
 .row {
@@ -85,7 +323,6 @@ h2 {
     position: absolute;
     margin: auto;
     left: 23%;
-    background-color: rgba(0, 0, 0, 0.5);
 }
 #row2 {
     top: 120px;
@@ -108,12 +345,11 @@ h2 {
 .corners {
     width: 15%;
 }
-#go-to-jail, #free-parking, #in-jail, #go {
+#jail, #fog, #oneWayStreet, #go {
     height: 120px;
     width: 100%;
 }
 .properties {
-    background-color: rgba(184, 184, 184, 0.5);
     height: 95px;
     width: 14%;
 }
@@ -138,13 +374,13 @@ h2 {
 .display-none {
     display: none;
 }
-.player1 {
+.playerOne {
     position: absolute;
-    color: yellow;
+    width: 5%;
 }
-.player2 {
+.playerTwo {
     position: absolute;
-    color: red;
+    width: 5%;
 }
 .bottom-20 {
     bottom: 20%;
@@ -152,67 +388,109 @@ h2 {
 .bottom-60 {
     bottom: 60%; 
 }
-#player1-free-parking, #player1-chance-1, #player1-whitehall, #player1-north, #player1-marlborough, #player1-vine {
-    left: 4%;
+#playerOne-fog, #playerOne-chance4, #playerOne-noeValley, #playerOne-missionDistrict, #playerOne-chinaTown, #playerOne-haightAshbury {
+    left: 1%;
 }
-#player2-free-parking, #player2-chance-1, #player2-whitehall, #player2-north, #player2-marlborough, #player2-vine {
+#playerTwo-fog, #playerTwo-chance4, #playerTwo-noeValley, #playerTwo-missionDistrict, #playerTwo-chinaTown, #playerTwo-haightAshbury {
     left: 8%;
 }
-#player1-in-jail {
-    left: 6%;
-    bottom: 40%;
-}
-#player2-in-jail {
-    left: 10%;
-    bottom: 40%;
-}
-#player1-visiting-jail {
-    left: 3%;
+#playerOne-oneWayStreet {
+    left: 1%;
     bottom: 3%;
 }
-#player2-visiting-jail {
+#playerTwo-oneWayStreet {
     left: 8%;
     bottom: 3%;
 }
-#player1-go-to-jail, #player1-go {
+#playerOne-jail, #playerOne-go {
     right: 9%;
 }
-#player2-go-to-jail, #player2-go {
-    right: 4%;
+#playerTwo-jail, #playerTwo-go {
+    right: 2%;
 }
-#player1-chance-2, #player1-oxford, #player1-bond, #player1-park, #player1-mayfair {
-    left: 25%;
+#playerOne-chance2, #playerOne-northBeach, #playerOne-soma, #playerOne-financialDistrict, #playerOne-russianHill {
+    width: 35%;
+    left: 11%;
 }
-#player2-chance-2, #player2-oxford, #player2-bond, #player2-park, #player2-mayfair {
-    right: 25%;
+#playerTwo-chance2, #playerTwo-northBeach, #playerTwo-soma, #playerTwo-financialDistrict, #playerTwo-russianHill {
+    width: 35%;
+    right: 6%;
 }
-#player1-community-chest-1, #player1-community-chest-2 {
-    left: 47%;
+#playerOne-chance1, #playerOne-chance3 {
+    left: 44%;
 }
-#player2-community-chest-1, #player2-community-chest-2 {
-    right: 47%;
+#playerTwo-chance1, #playerTwo-chance3 {
+    right: 44%;
 }
-#player1-old-kent-1, #player1-piccaddily {
+#playerOne-goldenGatePark, #playerOne-dogPatch {
     right: 23%;
 }
-#player2-old-kent-1, #player2-piccaddily {
-    right: 19%;
+#playerTwo-goldenGatePark, #playerTwo-dogPatch {
+    right: 16%;
 }
-#player1-old-kent-2, #player1-coventry {
+#playerOne-huntersPoint, #playerOne-alamoSquare {
     right: 37%;
 }
-#player2-old-kent-2, #player2-coventry {
-    right: 33%;
+#playerTwo-huntersPoint, #playerTwo-alamoSquare {
+    right: 30%;
 }
-#player1-angel, #player1-trafalgar {
-    left: 33%;
+#playerOne-sunset, #playerOne-civicCenter {
+    left: 30%;
 }
-#player2-angel, #player2-trafalgar {
+#playerTwo-sunset, #playerTwo-civicCenter {
     left: 37%;
 }
-#player1-pentonville, #player1-fleet {
-    left: 19%;
+#playerOne-nobHill, #playerOne-theCastro {
+    left: 16%;
 }
-#player2-pentonville, #player2-fleet {
+#playerTwo-nobHill, #playerTwo-theCastro {
     left: 23%;
+}
+
+
+
+/* Sandy updates for End game page */
+
+#winnerImg{
+    width: 250px;
+    height: 125px;
+    margin-top: 30px;
+}
+#resetGame{
+    margin-top: 20px;
+}
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    /* left: 0;
+    top: 0; */
+    margin: auto;
+    width: 50%; /* Full width */
+    height: 70%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: #fdb90e; /*matches yellow from button */
+    border: 2px solid black;
+    border-radius: 15px;
+    font-family: Monopoly;
+    font-size: 20px;
+    line-height: 30px;
+    color: black;
+}
+#modalH2 {
+    font-size: 60px;
+}
+.modal-content {
+    background-color: black;
+    margin: auto;
+    color: white;
+    box-shadow: 1px 1px 1px darkred;
+}
+#modalButton{
+    margin-top: 20px;
+}
+#closeModal{
+    margin-left: 44%;
+    margin-top: 5px;
+    margin-bottom: 5px;
 }

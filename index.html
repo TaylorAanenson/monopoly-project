@@ -1,232 +1,388 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+    
+    <title>Start Game</title>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/css/bootstrap.min.css" integrity="sha384-Smlep5jCw/wG7hdkwQ/Z5nLIefveQRIY9nfy6xoR1uRYBtpZgI6339F5dgvm/e9B" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Playball|Poppins|Roboto|Seaweed+Script" rel="stylesheet">    
+    <link rel="stylesheet" href="assets/css/reset.css">
     <link rel="stylesheet" href="assets/css/style.css">
-    <title>Document</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pretty-checkbox@3.0/dist/pretty-checkbox.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
+        
 </head>
+
+
 <body>
-<div id="player1" class="body">
-    <h1 class="text-center">Player One</h1>
-    <div id="player1-info" class="container">
-        <h2 id="player1-name">Name</h2>
-        <img id="money-symbol" src="assets/images/money/symbol.png" alt="Money Symbol"><span id="player1-money"></span>
-        <h2 class="players-properties">Properties</h2>
-        <div id="player1-properties">
-            <img id="player1-old-kent-1-small" class="player-property-img display-none" src="assets/images/players-properties/old-kent.jpg" alt="Old Kent">
-            <img id="player1-old-kent-2-small" class="player-property-img display-none" src="assets/images/players-properties/old-kent.jpg" alt="Old Kent">
-            <img id="player1-angel-small" class="player-property-img display-none" src="assets/images/players-properties/angel.jpg" alt="Angel">
-            <img id="player1-pentonville-small" class="player-property-img display-none" src="assets/images/players-properties/pentonville.jpg" alt="Pentonville">
-            <img id="player1-whitehall-small" class="player-property-img display-none" src="assets/images/players-properties/whitehall.jpg" alt="Whitehall">
-            <img id="player1-north-small" class="player-property-img display-none" src="assets/images/players-properties/north.jpg" alt="North">
-            <img id="player1-marlborough-small" class="player-property-img display-none" src="assets/images/players-properties/marlborough.jpg" alt="Marlborough">
-            <img id="player1-vine-small" class="player-property-img display-none" src="assets/images/players-properties/vine.jpg" alt="Vine">
-            <img id="player1-fleet-small" class="player-property-img display-none" src="assets/images/players-properties/fleet.jpg" alt="Fleet">
-            <img id="player1-trafalgar-small" class="player-property-img display-none" src="assets/images/players-properties/trafalgar.jpg" alt="Trafalgar">
-            <img id="player1-coventry-small" class="player-property-img display-none" src="assets/images/players-properties/coventry.jpg" alt="Coventry">
-            <img id="player1-piccaddily-small" class="player-property-img display-none" src="assets/images/players-properties/piccaddily.jpg" alt="Piccaddily">
-            <img id="player1-oxford-small" class="player-property-img display-none" src="assets/images/players-properties/oxford.jpg" alt="Oxford">
-            <img id="player1-bond-small" class="player-property-img display-none" src="assets/images/players-properties/bond.jpg" alt="Bond">
-            <img id="player1-park-small" class="player-property-img display-none" src="assets/images/players-properties/park.jpg" alt="Park">
-            <img id="player1-mayfair-small" class="player-property-img display-none" src="assets/images/players-properties/mayfair.jpg" alt="Mayfair">
+    <audio id="audiotagDice" src="assets/sounds/Shake And Roll Dice-SoundBible.com-591494296.mp3" preload="auto"></audio>
+    <audio id="audiotagFog" src="assets/sounds/fog horn.wav" preload="auto"></audio>
+    <audio id="audiotagJail" src="assets/sounds/police.wav" preload="auto"></audio>
+    <audio id="audiotagError" src="assets/sounds/error.wav" preload="auto"></audio>
+    <audio id="audiotagGo" src="assets/sounds/cha-ching.wav" preload="auto"></audio>
+    <audio id="audiotagBuy" src="assets/sounds/buy.mp3" preload="auto"></audio>
+    <audio id="audiotagNoMoney" src="assets/sounds/noMoney.wav" preload="auto"></audio>
+    <audio id="audiotagHonk" src="assets/sounds/honk.wav" preload="auto"></audio>
+    <!-- FIRST SCREEN, AKA Game Start -->
+
+    <div class="containerStart startScreen text-center">
+        <img class="startImg startScreen" src="assets/images/background/MonopolyMan.png" alt="Monopoly Man">
+        <div class="titleStart startScreen">
+            <h1 class="startScreen">SF MONOPOLY</h1>
         </div>
+        <form>
+            <button class="btn btn-danger startScreen" id="start">Start Game!</button>
+        </form>
+   </div>
+
+   <!-- SECOND SCREEN, AKA Instructions -->
+
+   <div class="containerInstructions instructionsScreen text-center">
+       <h2 class="instructionsScreen">Instructions</h2>
+       <form>
+           <button class="btn btn-danger instructionsScreen" id="instructionsGoToGame" data-gamestart="no">Continue to Game</button>
+       </form>
+       <div class="instructionsInnerDiv instructionsScreen">
+            <h5 class="instructionsScreen">Basics</h5>
+            <p>The object of the game is to become the wealthiest player through buying, renting, and selling of property. Each player begins the game with $1000. 
+                When one player runs out of money, the game ends, and the other player wins. High scores are awarded for particularly rich players who win the game 
+                upon bankruptcy of their opponent.</p>
+            <h5 class="instructionsScreen">Game Play</h5>
+             <ul>
+                 <li>Each player clicks the die to roll for first turn. The player with the highest number goes first. Each player starts at the corner marked "GO."</li>
+                 <li> The first player rolls the die and his/her token moves the number of spaces indicated by the die.</li>
+                 <li>The tokens remain on the spaces occupied and proceed from that point on the player's next turn. 
+                     Two or more tokens may rest on the same space at the same time.</li> 
+                 <li>Depending on the space your token reaches, you may be entitled to buy real estate, or be obliged to pay rent, draw a Chance card, 
+                     or lose a turn according to the space.</li>
+                 </ul>
+             <h5 class="instructionsScreen">Property and Rent</h5>
+             <ul>
+                 <li>Whenever you land on an unowned property, you may buy that property from the Bank at its printed price.</li>
+                 <li>If you decide to buy the property, the other player pays rent to you every time they land on that space, 
+                     based on how much the land was worth when you bought it. Rent is one half of the original property price.</li>
+                <li>You may choose not to buy a property if you think it is too expensive, leaving it open for the other play to buy it, should they land on that space
+                    during a subsequent turn.</li>
+                <li>If you do not have enough money to cover the price of the property, you will not be able to buy it.</li>
+            </ul>
+             <h5 class="instructionsScreen">Special Squares</h5>
+             <ul>
+                 <li class="hideNum"><span class="specialCards instructionsScreen">GO</span>Each time a player's token lands on or passes over GO, the player collects $200.</li>
+                 <li class="hideNum"><span class="specialCards instructionsScreen">One Way Street</span>A player who lands on this space went the wrong way down a One Way Street,
+                     and subsequently must pay a fine.</li>
+                 <li class="hideNum"><span class="specialCards instructionsScreen">Fog</span>A player who lands on this space got lost in the fog, and subsequently loses a turn.</li>
+                 <li class="hideNum"><span class="specialCards instructionsScreen">Jail</span>A player who lands on this space got busted and is stuck in jail. 
+                    The player must pay a fine to get out.</li>
+                 <li class="hideNum"><span class="specialCards instructionsScreen">Chance</span>A plater who lands on this space receives a card with a random consequence. 
+                    The consequence can be positive or negative depending on the player's luck!</li>
+             </ul>
+
+       </div>
     </div>
-    <div id="player1-interactions" class="container">
-        <div id="player1-buy-property" class="display-none">
-            <h2 class="text-center">Buy <span id="player1-property"></span>?</h2>
-            <button type="button" id="player1-buy-button" class="btn btn-success">Yes</button>
-            <button type="button" class="btn btn-danger">No</button>
+
+    <!-- Third Screen, AKA Players -->
+
+<div class="containerPlayers playersScreen text-center">
+    <div class="buttonDiv">
+    <form>
+        <span class="innerContainersPlayers playersScreen playerBoxOne">
+            <h2 class="playerTitleText playersScreen">Player One</h2>
+                <p>Player Nickname</p>
+                <input type="text" id="playerOneName">
+                <p>This is your Token:</p>
+                
+                    <img src="assets/images/tokens/cableCar.png" class="playerTokenOne">
+                
+                <p>Click the die to roll. Highest roll plays first!</p>
+                <p><img height="65" id="playerOneDie" src="assets/images/dice/BeforeRolled.png" alt="Roll the die!"></p>
+        </span>
+        <span class="innerContainersPlayers playersScreen playerBoxTwo">
+            <h2 class="playersScreen playerTitleText">Player Two</h2>
+                <p>Player Nickname</p>
+               <input type="text" id="playerTwoName">
+                 <p>This is your Token:</p>
+                
+                    <img src="assets/images/tokens/Tram.png" class="playerTokenTwo">
+                
+                 <p>Click the die to roll. Highest roll plays first!</p>
+                <p><img height="65" id="playerTwoDie" src="assets/images/dice/BeforeRolled.png" alt="Roll the die!"></p>
+        </span>
+    </form>
+    <button class="btn btn-danger playerScreen playerButton" id="submitPlayerInfo">Submit</button> 
+</div>
+</div>
+
+
+
+
+    <!-- start Taylor's HTML -->
+
+<div class="containerMainGame">
+<div id="playerOne" class="playerOneGameInfo body">
+    <h1 class="text-center playerH1">Player One</h1>
+    <div id="playerOne-info" class="container">
+        <h2 class="playerH2" id="playerOne-name"></h2>
+        <div id="playerOneGameName" class="playerOneGameInfo playerH2">
+            <!-- PLayer name populates here -->
         </div>
-        <div id="player1-die">
-            <div class="text-center" id="player1-game-die">
-            <img id="player1-game-die-image" src="assets/images/dice/BeforeRolled.png" alt="Game Die">
+        <h2 class="playerH2" id="playerOne-name"></h2>
+        <div id="playerOneGameCashDiv" class="playerOneGameInfo">
+            <img id="money-symbol" src="assets/images/money/symbol.png" alt="Money Symbol">
+            <span id="playerOneGameCash">
+                <!-- amount of money left populates here -->
+            </span>
         </div>
+        <h2 class="players-properties playerH2">Properties Owned</h2>
+        <div id="playerOneGameOwnedPropertiesDiv" class="playerOneGameInfo container">
+            <!-- Owned properties populate here -->
         </div>
-        <div id="player1-chance-chest"></div>
+        <div class="die-background">
+            <h2 class="playerH2" id="playerOneGameDie">Your Turn!</h2>
+            <p class="text-center">
+                <img height="65" id="playerOneGameDieImage" class="playerOneGameInfo" src="assets/images/dice/BeforeRolled.png" alt="Roll the die!"></p>
+        </div>             
+        <div id="playerOne-interactions" class="container">
+            <div id="playerOneInteractionsImageDiv"><img id="playerOneInteractionsImage" src="" alt=""></div>
+            <h2 class="text-center playerH2" id="playerOneBuy">Buy <span id="playerOneInteractionProperty"></span> for $<span id="playerOneInteractionPrice"></span> ?</h2>
+            <h2 class="text-center playerH2" id="playerOneAlert"></h2>
+            <button type="button" class="btn btn-success interactionYesButton" id="playerOneInteractionYes" data-player="one" >Yes</button><button type="button" class="btn btn-danger interactionNoButton" id="playerOneInteractionNo" data-player="one">No</button>
+            <!-- Rent due elements -->
+            <h2 class="text-center playerH2" id="playerOneRent"><span id="playerOneInteractionPropertyText"></span><span id="playerOneInteractionRentText"></span> rent is due.</h2>
+            <button type="button" class="btn btn-success interactionContinueButton" id="playerOneInteractionContinue" data-player="one"></button>
+            <!-- Chance elements -->
+            <h2 class="text-center playerH2" id="playerOneChanceName"></h2>
+            <h2 class="text-center playerH2" id="playerOneChanceAction"></h2>
+            <h2 class="text-center playerH2" id="playerOneChanceAmount"></h2>
+        </div>
     </div>
 </div>
 <div id="board" class="body">
-    <div id="row1" class="row">
-        <div id="corner1" class="corners">
-            <img id="free-parking" src="assets/images/corners/free-parking.jpg" alt="Free Parking">
-            <span id="player1-free-parking" class="player1 bottom-20 display-none">#1</span>
-            <span id="player2-free-parking" class="player2 bottom-20 display-none">#2</span>
-        </div>
-        <div id="property1" class="properties long-properties">
-            <img id="fleet" class="long-img" src="assets/images/properties/fleet.jpg" alt="Fleet">
-            <span id="player1-fleet" class="player1 bottom-60 display-none">#1</span>
-            <span id="player2-fleet" class="player2 bottom-60 display-none">#2</span>
-        </div>
-        <div id="property2" class="properties long-properties">
-            <img id="trafalgar" class="long-img" src="assets/images/properties/trafalgar.jpg" alt="Trafalgar">
-            <span id="player1-trafalgar" class="player1 bottom-60 display-none">#1</span>
-            <span id="player2-trafalgar" class="player2 bottom-60 display-none">#2</span>
-        </div>
-        <div id="property3" class="properties long-properties">
-            <img id="community-chest-1" class="long-img" src="assets/images/chance-chest/community-chest-1.jpg" alt="Community Chest"><span id="player1-community-chest-1" class="player1 bottom-60 display-none">#1</span>
-            <span id="player2-community-chest-1" class="player2 bottom-60 display-none">#2</span>
-        </div>
-        <div id="property4" class="properties long-properties">
-            <img id="coventry" class="long-img" src="assets/images/properties/coventry.jpg" alt="Coventry">
-            <span id="player1-coventry" class="player1 bottom-60 display-none">#1</span>
-            <span id="player2-coventry" class="player2 bottom-60 display-none">#2</span>
-        </div>
-        <div id="property5" class="properties long-properties">
-            <img id="piccaddily" class="long-img" src="assets/images/properties/piccaddily.jpg" alt="Piccaddily">
-            <span id="player1-piccaddily" class="player1 bottom-60 display-none">#1</span>
-            <span id="player2-piccaddily" class="player2 bottom-60 display-none">#2</span>
-        </div>
-        <div id="corner2" class="corners">
-            <img id="go-to-jail" src="assets/images/corners/go-to-jail.jpg" alt="Go To Jail">
-            <span id="player1-go-to-jail" class="player1 bottom-20 display-none">#1</span>
-            <span id="player2-go-to-jail" class="player2 bottom-20 display-none">#2</span>
-        </div>
+<div id="row1" class="row">
+    <div id="corner1" class="corners">
+        <img id="fog" src="assets/images/corners/free-parking.jpg" alt="Free Parking">
+        <img id="playerOne-fog" class="playerOne bottom-20 display-none" src="assets/images/tokens/cableCar.png" alt="Player One"></img>
+        <img id="playerTwo-fog" class="playerTwo bottom-20 display-none" src="assets/images/tokens/Tram.png" alt="Player Two"></img>
     </div>
-    <div id="row2" class="row">
-        <div id="property6" class="properties wide-properties"
-        ><img id="vine" class="wide-img" src="assets/images/properties/vine.jpg" alt="Vine">
-        <span id="player1-vine" class="player1 bottom-20 display-none">#1</span>
-        <span id="player2-vine" class="player2 bottom-20 display-none">#2</span>
+    <div id="property1" class="properties long-properties">
+        <img id="theCastro" class="long-img" src="assets/images/properties/castro.jpg" alt="The Castro">
+        <img id="playerOne-theCastro" class="playerOne bottom-60 display-none" src="assets/images/tokens/cableCar.png" alt="Player One"></img>
+        <img id="playerTwo-theCastro" class="playerTwo bottom-60 display-none" src="assets/images/tokens/Tram.png" alt="Player Two"></img>
     </div>
-        <div id="property7" class="properties wide-properties end-properties">
-            <img id="oxford" class="wide-img" src="assets/images/properties/oxford.jpg" alt="Oxford">
-            <span id="player1-oxford" class="player1 bottom-20 display-none">#1</span>
-            <span id="player2-oxford" class="player2 bottom-20 display-none">#2</span>
-        </div>
+    <div id="property2" class="properties long-properties">
+        <img id="civicCenter" class="long-img" src="assets/images/properties/civic-center.jpg" alt="Civic Center">
+        <img id="playerOne-civicCenter" class="playerOne bottom-60 display-none" src="assets/images/tokens/cableCar.png" alt="Player One"></img>
+        <img id="playerTwo-civicCenter" class="playerTwo bottom-60 display-none" src="assets/images/tokens/Tram.png" alt="Player Two"></img>
     </div>
-    <div id="row3" class="row">
-        <div id="property8" class="properties wide-properties">
-            <img id="marlborough" class="wide-img" src="assets/images/properties/marlborough.jpg" alt="Marlborough">
-            <span id="player1-marlborough" class="player1 bottom-20 display-none">#1</span>
-            <span id="player2-marlborough" class="player2 bottom-20 display-none">#2</span>
-        </div>
-        <div id="property9" class="properties wide-properties end-properties">
-            <img id="bond" class="wide-img" src="assets/images/properties/bond.jpg" alt="Bond">
-            <span id="player1-bond" class="player1 bottom-20 display-none">#1</span>
-            <span id="player2-bond" class="player2 bottom-20 display-none">#2</span>
-        </div>
+    <div id="property3" class="properties long-properties">
+        <img id="chance1" class="long-img" src="assets/images/chance-chest/chance-1.jpg" alt="Community Chest">
+        <img id="playerOne-chance1" class="playerOne bottom-60 display-none" src="assets/images/tokens/cableCar.png" alt="Player One"></img>
+        <img id="playerTwo-chance1" class="playerTwo bottom-60 display-none" src="assets/images/tokens/Tram.png" alt="Player Two"></img>
     </div>
-    <div id="row4" class="row">
-        <div id="property10" class="properties wide-properties">
-            <img id="chance-1" class="wide-img" src="assets/images/chance-chest/chance-1.jpg" alt="Chance">
-            <span id="player1-chance-1" class="player1 bottom-20 display-none">#1</span>
-            <span id="player2-chance-1" class="player2 bottom-20 display-none">#2</span>
-        </div>
-        <div id="property11" class="properties wide-properties end-properties">
-            <img id="chance-2" class="wide-img" src="assets/images/chance-chest/chance-2.jpg" alt="Chance">
-            <span id="player1-chance-2" class="player1 bottom-20 display-none">#1</span>
-            <span id="player2-chance-2" class="player2 bottom-20 display-none">#2</span>
-        </div>
+    <div id="property4" class="properties long-properties">
+        <img id="alamoSquare" class="long-img" src="assets/images/properties/alamo-square.jpg" alt="Alamo Square">
+        <img id="playerOne-alamoSquare" class="playerOne bottom-60 display-none" src="assets/images/tokens/cableCar.png" alt="Player One"></img>
+        <img id="playerTwo-alamoSquare" class="playerTwo bottom-60 display-none" src="assets/images/tokens/Tram.png" alt="Player Two"></img>
     </div>
-    <div id="row5" class="row">
-        <div id="property12" class="properties wide-properties">
-            <img id="north" class="wide-img" src="assets/images/properties/north.jpg" alt="North">
-            <span id="player1-north" class="player1 bottom-20 display-none">#1</span>
-            <span id="player2-north" class="player2 bottom-20 display-none">#2</span>
-        </div>
-        <div id="property13" class="properties wide-properties end-properties">
-            <img id="park" class="wide-img" src="assets/images/properties/park.jpg" alt="Park">
-            <span id="player1-park" class="player1 bottom-20 display-none">#1</span>
-            <span id="player2-park" class="player2 bottom-20 display-none">#2</span>
-        </div>
+    <div id="property5" class="properties long-properties">
+        <img id="dogPatch" class="long-img" src="assets/images/properties/dogpatch.jpg" alt="Dogpatch">
+        <img id="playerOne-dogPatch" class="playerOne bottom-60 display-none" src="assets/images/tokens/cableCar.png" alt="Player One"></img>
+        <img id="playerTwo-dogPatch" class="playerTwo bottom-60 display-none" src="assets/images/tokens/Tram.png" alt="Player Two"></img>
     </div>
-    <div id="row6" class="row">
-        <div id="property14" class="properties wide-properties">
-            <img id="whitehall" class="wide-img" src="assets/images/properties/whitehall.jpg" alt="Whitehall">
-            <span id="player1-whitehall" class="player1 bottom-20 display-none">#1</span>
-            <span id="player2-whitehall" class="player2 bottom-20 display-none">#2</span>
-        </div>
-        <div id="property15" class="properties wide-properties end-properties">
-            <img id="mayfair" class="wide-img" src="assets/images/properties/mayfair.jpg" alt="Mayfair">
-            <span id="player1-mayfair" class="player1 bottom-20 display-none">#1</span>
-            <span id="player2-mayfair" class="player2 bottom-20 display-none">#2</span>
-        </div>
+    <div id="corner2" class="corners">
+        <img id="jail" src="assets/images/corners/go-to-jail.jpg" alt="Go To Jail">
+        <img id="playerOne-jail" class="playerOne bottom-20 display-none" src="assets/images/tokens/cableCar.png" alt="Player One"></img>
+        <img id="playerTwo-jail" class="playerTwo bottom-20 display-none" src="assets/images/tokens/Tram.png" alt="Player Two"></img>
+    </div>
+</div>
+<div id="row2" class="row">
+    <div id="property6" class="properties wide-properties">
+        <img id="haightAshbury" class="wide-img" src="assets/images/properties/haight-ashbury.jpg" alt="Haight Ashbury">
+        <img id="playerOne-haightAshbury" class="playerOne bottom-20 display-none" src="assets/images/tokens/cableCar.png" alt="Player One"></img>
+        <img id="playerTwo-haightAshbury" class="playerTwo bottom-20 display-none" src="assets/images/tokens/Tram.png" alt="Player Two"></img>
+    </div>
+    <div id="property7" class="properties wide-properties end-properties">
+        <img id="northBeach" class="wide-img" src="assets/images/properties/north-beach.jpg" alt="North Beach">
+        <img id="playerOne-northBeach" class="playerOne bottom-20 display-none" src="assets/images/tokens/cableCar.png" alt="Player One"></img>
+        <img id="playerTwo-northBeach" class="playerTwo bottom-20 display-none" src="assets/images/tokens/Tram.png" alt="Player Two"></img>
+    </div>
+</div>
+<div id="row3" class="row">
+    <div id="property8" class="properties wide-properties">
+        <img id="chinaTown" class="wide-img" src="assets/images/properties/china-town.jpg" alt="China Town">
+        <img id="playerOne-chinaTown" class="playerOne bottom-20 display-none" src="assets/images/tokens/cableCar.png" alt="Player One"></img>
+        <img id="playerTwo-chinaTown" class="playerTwo bottom-20 display-none" src="assets/images/tokens/Tram.png" alt="Player Two"></img>
+    </div>
+    <div id="property9" class="properties wide-properties end-properties">
+        <img id="soma" class="wide-img" src="assets/images/properties/soma.jpg" alt="Soma">
+        <img id="playerOne-soma" class="playerOne bottom-20 display-none" src="assets/images/tokens/cableCar.png" alt="Player One"></img>
+        <img id="playerTwo-soma" class="playerTwo bottom-20 display-none" src="assets/images/tokens/Tram.png" alt="Player Two"></img>
+    </div>
+</div>
+<div id="row4" class="row">
+    <div id="property10" class="properties wide-properties">
+        <img id="chance4" class="wide-img" src="assets/images/chance-chest/chance-4.jpg" alt="Chance">
+        <img id="playerOne-chance4" class="playerOne bottom-20 display-none" src="assets/images/tokens/cableCar.png" alt="Player One"></img>
+        <img id="playerTwo-chance4" class="playerTwo bottom-20 display-none" src="assets/images/tokens/Tram.png" alt="Player Two"></img>
+    </div>
+    <div id="property11" class="properties wide-properties end-properties">
+        <img id="chance2" class="wide-img" src="assets/images/chance-chest/chance-2.jpg" alt="Chance">
+        <img id="playerOne-chance2" class="playerOne bottom-20 display-none" src="assets/images/tokens/cableCar.png" alt="Player One"></img>
+        <img id="playerTwo-chance2" class="playerTwo bottom-20 display-none" src="assets/images/tokens/Tram.png" alt="Player Two"></img>
+    </div>
+</div>
+<div id="row5" class="row">
+    <div id="property12" class="properties wide-properties">
+        <img id="missionDistrict" class="wide-img" src="assets/images/properties/mission-district.jpg" alt="Mission District">
+        <img id="playerOne-missionDistrict" class="playerOne bottom-20 display-none" src="assets/images/tokens/cableCar.png" alt="Player One"></img>
+        <img id="playerTwo-missionDistrict" class="playerTwo bottom-20 display-none" src="assets/images/tokens/Tram.png" alt="Player Two"></img>
+    </div>
+    <div id="property13" class="properties wide-properties end-properties">
+        <img id="financialDistrict" class="wide-img" src="assets/images/properties/financial-district.jpg" alt="Financial District">
+        <img id="playerOne-financialDistrict" class="playerOne bottom-20 display-none" src="assets/images/tokens/cableCar.png" alt="Player One"></img>
+        <img id="playerTwo-financialDistrict" class="playerTwo bottom-20 display-none" src="assets/images/tokens/Tram.png" alt="Player Two"></img>
+    </div>
+</div>
+<div id="row6" class="row">
+    <div id="property14" class="properties wide-properties">
+        <img id="noeValley" class="wide-img" src="assets/images/properties/noe-valley.jpg" alt="Noe Valley">
+        <img id="playerOne-noeValley" class="playerOne bottom-20 display-none" src="assets/images/tokens/cableCar.png" alt="Player One"></img>
+        <img id="playerTwo-noeValley" class="playerTwo bottom-20 display-none" src="assets/images/tokens/Tram.png" alt="Player Two"></img>
+    </div>
+    <div id="property15" class="properties wide-properties end-properties">
+        <img id="russianHill" class="wide-img" src="assets/images/properties/russian-hill.jpg" alt="Russian Hill">
+        <img id="playerOne-russianHill" class="playerOne bottom-20 display-none" src="assets/images/tokens/cableCar.png" alt="Player One"></img>
+        <img id="playerTwo-russianHill" class="playerTwo bottom-20 display-none" src="assets/images/tokens/Tram.png" alt="Player Two"></img>
     </div>
 </div>
 <div id="row7" class="row">
     <div id="corner3" class="corners">
-        <img id="in-jail" src="assets/images/corners/in-jail.jpg" alt="In Jail">
-        <span id="player1-in-jail" class="player1 bottom-60 display-none">#1</span>
-        <span id="player2-in-jail" class="player2 bottom-60 display-none">#2</span>
-        <span id="player1-visiting-jail" class="player1 bottom-20 display-none">#1</span>
-        <span id="player2-visiting-jail" class="player2 bottom-20 display-none">#2</span>
+        <img id="oneWayStreet" src="assets/images/corners/in-jail.jpg" alt="In Jail">
+        <img id="playerOne-oneWayStreet" class="playerOne bottom-20 display-none" src="assets/images/tokens/cableCar.png" alt="Player One"></img>
+        <img id="playerTwo-oneWayStreet" class="playerTwo bottom-20 display-none" src="assets/images/tokens/Tram.png" alt="Player Two"></img>
     </div>
     <div id="property16" class="properties long-properties">
-        <img id="pentonville" class="long-img" src="assets/images/properties/pentonville.jpg" alt="Pentonville">
-        <span id="player1-pentonville" class="player1 bottom-20 display-none">#1</span>
-        <span id="player2-pentonville" class="player2 bottom-20 display-none" class="player2 bottom-20 display-none">#2</span>
+        <img id="nobHill" class="long-img" src="assets/images/properties/nob-hill.jpg" alt="Nob Hill">
+        <img id="playerOne-nobHill" class="playerOne bottom-20 display-none" src="assets/images/tokens/cableCar.png" alt="Player One"></img>
+        <img id="playerTwo-nobHill" class="playerTwo bottom-20 display-none" class="playerTwo bottom-20 display-none" src="assets/images/tokens/Tram.png" alt="Player Two"></img>
     </div>
     <div id="property17" class="properties long-properties">
-        <img id="angel" class="long-img" src="assets/images/properties/angel.jpg" alt="Angel">
-        <span id="player1-angel" class="player1 bottom-20 display-none">#1</span>
-        <span id="player2-angel" class="player2 bottom-20 display-none">#2</span>
+        <img id="sunset" class="long-img" src="assets/images/properties/sunset.jpg" alt="Sunset">
+        <img id="playerOne-sunset" class="playerOne bottom-20 display-none" src="assets/images/tokens/cableCar.png" alt="Player One"></img>
+        <img id="playerTwo-sunset" class="playerTwo bottom-20 display-none" src="assets/images/tokens/Tram.png" alt="Player Two"></img>
     </div>
     <div id="property18" class="properties long-properties">
-        <img id="community-chest-2" class="long-img" src="assets/images/chance-chest/community-chest-2.jpg" alt="Community Chest">
-        <span id="player1-community-chest-2" class="player1 bottom-20 display-none">#1</span>
-        <span id="player2-community-chest-2" class="player2 bottom-20 display-none">#2</span>
+        <img id="chance3" class="long-img" src="assets/images/chance-chest/chance-3.jpg" alt="Community Chest">
+        <img id="playerOne-chance3" class="playerOne bottom-20 display-none" src="assets/images/tokens/cableCar.png" alt="Player One"></img>
+        <img id="playerTwo-chance3" class="playerTwo bottom-20 display-none" src="assets/images/tokens/Tram.png" alt="Player Two"></img>
     </div>
     <div id="property19" class="properties long-properties">
-        <img id="old-kent-2" class="long-img" src="assets/images/properties/old-kent.jpg" alt="Old Kent">
-        <span id="player1-old-kent-2" class="player1 bottom-20 display-none">#1</span>
-        <span id="player2-old-kent-2" class="player2 bottom-20 display-none">#2</span>
+        <img id="huntersPoint" class="long-img" src="assets/images/properties/hunters-point.jpg" alt="Hunters Point">
+        <img id="playerOne-huntersPoint" class="playerOne bottom-20 display-none" src="assets/images/tokens/cableCar.png" alt="Player One"></img>
+        <img id="playerTwo-huntersPoint" class="playerTwo bottom-20 display-none" src="assets/images/tokens/Tram.png" alt="Player Two"></img>
     </div>
     <div id="property20" class="properties long-properties">
-        <img id="old-kent-1" class="long-img" src="assets/images/properties/old-kent.jpg" alt="Old Kent">
-        <span id="player1-old-kent-1" class="player1 bottom-20 display-none">#1</span>
-        <span id="player2-old-kent-1" class="player2 bottom-20 display-none">#2</span>
+        <img id="goldenGatePark" class="long-img" src="assets/images/properties/golden-gate.jpg" alt="Golden Gate Park">
+        <img id="playerOne-goldenGatePark" class="playerOne bottom-20 display-none" src="assets/images/tokens/cableCar.png" alt="Player One"></img>
+        <img id="playerTwo-goldenGatePark" class="playerTwo bottom-20 display-none" src="assets/images/tokens/Tram.png" alt="Player Two"></img>
     </div>
-    <div id="corner4" class="corners">
-        <img id="go" src="assets/images/corners/go.jpg" alt="Go">
-        <span id="player1-go" class="player1 bottom-20 display-none">#1</span>
-        <span id="player2-go" class="player2 bottom-20 display-none">#2</span>
-    </div>
-</div>
-<div id="player2" class="body">
-    <h1 class="text-center">Player Two</h1>
-    <div id="player2-info" class="container">
-        <h2 id="player2-name">Name</h2>
-        <img id="money-symbol" src="assets/images/money/symbol.png" alt="Money Symbol"><span id="player2-money"></span>
-        <h2 class="players-properties">Properties</h2>
-        <div id="player2-properties">
-            <img id="player2-old-kent-1-small" class="player-property-img display-none" src="assets/images/players-properties/old-kent.jpg" alt="Old Kent">
-            <img id="player2-old-kent-2-small" class="player-property-img display-none" src="assets/images/players-properties/old-kent.jpg" alt="Old Kent">
-            <img id="player2-angel-small" class="player-property-img display-none" src="assets/images/players-properties/angel.jpg" alt="Angel">
-            <img id="player2-pentonville-small" class="player-property-img display-none" src="assets/images/players-properties/pentonville.jpg" alt="Pentonville">
-            <img id="player2-whitehall-small" class="player-property-img display-none" src="assets/images/players-properties/whitehall.jpg" alt="Whitehall">
-            <img id="player2-north-small" class="player-property-img display-none" src="assets/images/players-properties/north.jpg" alt="North">
-            <img id="player2-marlborough-small" class="player-property-img display-none" src="assets/images/players-properties/marlborough.jpg" alt="Marlborough">
-            <img id="player2-vine-small" class="player-property-img display-none" src="assets/images/players-properties/vine.jpg" alt="Vine">
-            <img id="player2-fleet-small" class="player-property-img display-none" src="assets/images/players-properties/fleet.jpg" alt="Fleet">
-            <img id="player2-trafalgar-small" class="player-property-img display-none" src="assets/images/players-properties/trafalgar.jpg" alt="Trafalgar">
-            <img id="player2-coventry-small" class="player-property-img display-none" src="assets/images/players-properties/coventry.jpg" alt="Coventry">
-            <img id="player2-piccaddily-small" class="player-property-img display-none" src="assets/images/players-properties/piccaddily.jpg" alt="Piccaddily">
-            <img id="player2-oxford-small" class="player-property-img display-none" src="assets/images/players-properties/oxford.jpg" alt="Oxford">
-            <img id="player2-bond-small" class="player-property-img display-none" src="assets/images/players-properties/bond.jpg" alt="Bond">
-            <img id="player2-park-small" class="player-property-img display-none" src="assets/images/players-properties/park.jpg" alt="Park">
-            <img id="player2-mayfair-small" class="player-property-img display-none" src="assets/images/players-properties/mayfair.jpg" alt="Mayfair">
-        </div>
-    </div>
-    <div id="player2-interactions" class="container">
-        <div id="player2-buy-property" class="display-none">
-            <h2 class="text-center">Buy <span id="player2-property"></span>?</h2>
-            <button type="button" id="player2-buy-button" class="btn btn-success">Yes</button>
-            <button type="button" class="btn btn-danger">No</button>
-        </div>
-        <div id="player2-die" class="display-none">
-            <div class="text-center" id="player2-game-die">
-            <img id="player2-game-die-image" src="assets/images/dice/BeforeRolled.png" alt="Game Die">
-        </div>
-        </div>
-        <div id="player2-chance-chest"></div>
+    <div id="corner4" class="corners"><img id="go" src="assets/images/corners/go.jpg" alt="Go">
+        <img id="playerOne-go" class="playerOne bottom-20 display-none" src="assets/images/tokens/cableCar.png" alt="Player One"></img>
+        <img id="playerTwo-go" class="playerTwo bottom-20 display-none" src="assets/images/tokens/Tram.png" alt="Player Two"></img>
     </div>
 </div>
 </div>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script src="assets/javascript/game.js"></script>
+
+    <div id="playerTwo" class="playerTwoGameInfo body">
+        <h1 class="text-center playerH1">Player Two</h1>
+        <div id="playerTwo-info" class="container">
+            <h2 class="playerH2" id="playerTwo-name"></h2>
+            <div id="playerTwoGameName" class="playerTwoGameInfo playerH2">
+                <!-- PLayer name populates here -->
+            </div>
+            <h2 class="playerH2" id="playerTwo-name"></h2>
+            <div id="playerTwoGameCashDiv" class="playerTwoGameInfo">
+                <img id="money-symbol" src="assets/images/money/symbol.png" alt="Money Symbol">
+                <span id="playerTwoGameCash">
+                    <!-- amount of money left populates here -->
+                </span>
+            </div>
+            <h2 class="players-properties playerH2">Properties Owned</h2>
+            <div id="playerTwoGameOwnedPropertiesDiv" class="playerTwoGameInfo container">
+                <!-- Owned properties populate here -->
+            </div>
+            <div class="die-background">
+                <h2 class="playerH2" id="playerTwoGameDie">Your Turn!</h2>
+                <p class="text-center">
+                <img height="65" id="playerTwoGameDieImage" class="playerTwoGameInfo" src="assets/images/dice/BeforeRolled.png" alt="Roll the die!"></p>
+            </div>
+            <div id="playerTwo-interactions" class="container">
+                <!-- Buy property elements -->
+                <div id="playerTwoInteractionsImageDiv"><img id="playerTwoInteractionsImage" src="" alt=""></div>
+                <h2 class="text-center playerH2" id="playerTwoBuy">Buy <span id="playerTwoInteractionProperty"></span> for $<span id="playerTwoInteractionPrice"></span> ?</h2>
+                <h2 class="text-center playerH2" id="playerTwoAlert"></h2>
+                <button type="button" class="btn btn-success interactionYesButton" id="playerTwoInteractionYes" data-player="two">Yes</button><button type="button" class="btn btn-danger interactionNoButton" id="playerTwoInteractionNo" data-player="two">No</button>
+                <!-- Rent due elements -->
+                <h2 class="text-center playerH2" id="playerTwoRent"><span id="playerTwoInteractionPropertyText"></span> is owned by the other player. $<span id="playerTwoInteractionRentText"></span> rent is due.</h2>
+                <button type="button" class="btn btn-success interactionContinueButton" id="playerTwoInteractionContinue" data-player="two"></button>
+                <!-- Chance elements -->
+                <h2 class="text-center playerH2" id="playerTwoChanceName"></h2>
+                <h2 class="text-center playerH2" id="playerTwoChanceAction"></h2>
+                <h2 class="text-center playerH2" id="playerTwoChanceAmount"></h2>
+            </div>
+        </div>
+    </div>
+</div>
+
+   <!-- LAST SCREEN, AKA END OF GAME -->
+<div class="containerEndGame endGameScreen text-center">
+    <h2 class="endGameScreen">Game Over</h2>
+        <h5 class="endGameScreen">Congratulations! <span class="winner"></span> is the winner.</h5>
+            <img id="winnerImg" src=""  data-playerOne="assets/images/tokens/cableCar.png" data-playerTwo="assets/images/tokens/Tram.png">
+        <h5 class="endGameScreen"><span class="loser"></span> is out of cash...</h5>
+        <form>
+            <button class="btn btn-danger endGameScreen" id="resetGame">Play Again?</button>
+        </form>
+
+    <button class="btn btn-warning endGameScreen" id="modalButton">Check out the current SF Real Estate Moguls!</button>
+    <!-- <h2>High Scores</h2>
+    <p>Previous SF Monopoly Moguls</p>
+        <ol>
+            <!-- start firebase portion -->
+           <!--<li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ol> -->
+</div>
+
+<div id="highScoresModal" class="modal">
+  
+    <button class="btn btn-danger endGameScreen" id="closeModal">Go Back</button>
+
+<!-- Modal content -->
+
+    <div class="modal-content modalScreen">
+        <h2 class="modalScreen">Winner Score</h2>
+        <div id="winnerScore"></div>
+        <h5 class="modalScreen">SF Real Estate Moguls</h5>
+        <div id="scores"></div>
+    </div>
+
+
+</div>
+
+    <!-- Firebase JavaScript Link -->
+<script src="https://www.gstatic.com/firebasejs/5.3.0/firebase.js"></script>
+
+
+    
+     <!-- JQUERY for moving between screens on page load -->
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="assets/javascript/game.js"></script>
+
 </body>
 </html>

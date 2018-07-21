@@ -1,0 +1,16 @@
+Alamo Square - 3300
+Chinatown - 3200
+Civi Center - 3300
+dogpatch - 3490
+financial district - 3580
+haightAshbury - 3300
+hunters point - 2600
+mission district - 3200
+nob hill - 3200
+noe valley - 3300
+north beach - 3350
+russian hill - 3600
+soma - 3550
+sunset - 2850
+the castro - 3400
+golden gate park - 2490
