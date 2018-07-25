@@ -49,6 +49,9 @@ var interactionChanceName;
 var interactionChanceAction;
 var interactionChanceAmount;
 var interactionAlert;
+var playerOneClickFlag = false;
+var playerTwoClickFlag = false;
+
 // Initialize Firebase
 var config = {
     apiKey: "AIzaSyBil3HmHCgYinAp2i7mn25moVuL93TO8vo",
@@ -357,7 +360,7 @@ $('#resetGame').on('click', function (){
     playerOnePositionCounter = 0;
     playerTwoPositionCounter = 0;
     $('#playerOneGameOwnedPropertiesDiv').empty();
-   $('#playerTwoGameOwnedPropertiesDiv').empty();
+    $('#playerTwoGameOwnedPropertiesDiv').empty();
     $('#playerOneDie').attr('src','assets/images/dice/BeforeRolled.png').removeClass('die');
     $('#playerTwoDie').attr('src','assets/images/dice/BeforeRolled.png').removeClass('die');
     $('.containerEndGame').hide();
@@ -388,8 +391,9 @@ $(document).on('click', '#instructionsGoToGame', function (){
 });
 
 //Player One die roll on the Player Info screen
-$(document).on('click', '#playerOneDie', function (){
-    
+$(document).one('click', '#playerOneDie', function (){
+    diceAudio.pause();
+    diceAudio.currentTime = 0;
     if (ranDieOne == ranDieTwo){
         ranDieOne = Math.ceil(Math.random()*6);
     }else {
@@ -401,8 +405,9 @@ $(document).on('click', '#playerOneDie', function (){
 });
 
 //Player Two die roll on the Player Info screen
-$(document).on('click', '#playerTwoDie', function (){  
-    // diceAudio.play();
+$(document).one('click', '#playerTwoDie', function (){  
+    diceAudio.pause();
+    diceAudio.currentTime = 0;
     if (ranDieTwo == ranDieOne){
         ranDieTwo = Math.ceil(Math.random()*6);
     } else {
@@ -457,7 +462,8 @@ $(document).on('click', '#submitPlayerInfo', function (){
 
 //Game Start - Player1 rolls dice
 $(document).on('click','#playerOneGameDieImage',function(){
-          
+
+    if(playerOneClickFlag) return;
     
     allPlayers.playerTwo.turn = 'false';
     allPlayers.playerOne.turn = 'true';
@@ -476,11 +482,14 @@ $(document).on('click','#playerOneGameDieImage',function(){
     hideInterval = setInterval(function(){displayPlayerPiece('playerOne',boardPosition[startMove],'hide',playerOnePositionCounter);},1000);
     showInterval = setInterval(function(){displayPlayerPiece('playerOne',boardPosition[startMove+1],'show',playerOnePositionCounter);},1000);
     
+    playerOneClickFlag = true;
 })
 
 //Game Start - Player2 rolls dice
 $(document).on('click','#playerTwoGameDieImage',function(){
     
+    if(playerTwoClickFlag) return;
+
     allPlayers.playerTwo.turn = 'true';
     allPlayers.playerOne.turn = 'false';
     alreadyMissedTurn = 0;
@@ -495,6 +504,8 @@ $(document).on('click','#playerTwoGameDieImage',function(){
 
     hideInterval = setInterval(function(){displayPlayerPiece('playerTwo',boardPosition[startMove],'hide',playerTwoPositionCounter);},1000);
     showInterval = setInterval(function(){displayPlayerPiece('playerTwo',boardPosition[startMove+1],'show',playerTwoPositionCounter);},1000);
+
+    playerTwoClickFlag = true;
 })
 
 
@@ -539,6 +550,11 @@ function displayPlayerPiece(player,property,display,playerPositionCounter){
 
 //Display the appropriate content in the dynamic player event window for player to take action
 function playerEvent(player,property){
+    // $(document).on('click','#playerOneGameDieImage');
+    // $(document).on('click','#playerTwoGameDieImage');
+    playerOneClickFlag = false;
+    playerTwoClickFlag = false;
+
     currentProperty = property;
     interactionElementID = '#'+player+'-interactions';
     console.log(interactionElementID, property);
@@ -566,7 +582,8 @@ function playerEvent(player,property){
     else{
         ownedProperty = "playerOneOwnedProperties";
     }
-    
+    $('#playerOneGameDieImage').attr('src','assets/images/dice/BeforeRolled.png').removeClass('die');
+    $('#playerTwoGameDieImage').attr('src','assets/images/dice/BeforeRolled.png').removeClass('die');
     $(dieElementID).hide();
     $(dieImageElementID).hide();
 
@@ -597,17 +614,18 @@ function playerEvent(player,property){
 
             if(allProperties[currentProperty].owner == player){
                 $(interactionImageID).hide();
-                $(interactionNoButton).hide();
                 $(interactionYesButton).hide();
                 $(interactionBuy).hide();
                 $(interactionAlert).hide();
                 $(interactionChanceName).hide();
                 $(interactionChanceAction).hide();
                 $(interactionChanceAmount).hide();
-                $(interactionPropertyText).text('You own '+currentProperty).show();
-                $(interactionRentText).text('No rent due').show();
+                $(interactionContinueButton).hide();
+                $(interactionNoButton).text('Continue').removeClass('btn-danger').addClass('btn-warning').css('width','90px').css('margin-left','30%');
+                $(interactionPropertyText).text('You own '+currentProperty).show()+'.';
+                $(interactionRentText).text(' No rent due').show();
                 $(interactionRent).show();
-                $(interactionContinueButton).text('Continue').show();
+                $(interactionNoButton).show(); //USE No button
                 $(interactionElementID).show();
             }
             else{
@@ -626,7 +644,7 @@ function playerEvent(player,property){
                 $(interactionChanceAction).hide();
                 $(interactionChanceAmount).hide();
                 $(interactionPropertyText).text(allProperties[property].name+' is owned by the other player. $').show();
-                $(interactionRentText).text(rentOwed).show();
+                $(interactionRentText).text(rentOwed+' rent is due.').show();
                 $(interactionRent).show();
                 $(interactionContinueButton).text('Pay Rent').show();
                 $(interactionElementID).show();
@@ -772,7 +790,6 @@ $(document).on('click','.interactionContinueButton',function(){
     if ($(this).attr('data-player') == "one"){
         player = "playerOne";
         otherPlayer = "playerTwo";
-        
     }
     else{
         player = "playerTwo";
